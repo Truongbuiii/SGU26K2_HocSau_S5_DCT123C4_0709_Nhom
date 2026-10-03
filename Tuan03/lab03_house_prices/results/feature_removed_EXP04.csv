@@ -1,0 +1,80 @@
+feature,reason
+BsmtHalfBath,|corr với log(SalePrice)|<0.02
+MSSubClass_150,dummy hiếm (<10 nhà)
+MSSubClass_40,dummy hiếm (<10 nhà)
+MSSubClass_75,|corr với log(SalePrice)|<0.02
+MSSubClass_80,|corr với log(SalePrice)|<0.02
+Street_Grvl,dummy hiếm (<10 nhà)
+LotShape_IR3,dummy hiếm (<10 nhà)
+LandContour_Lvl,|corr với log(SalePrice)|<0.02
+Utilities_AllPub,|corr với log(SalePrice)|<0.02
+Utilities_NoSeWa,dummy hiếm (<10 nhà)
+LotConfig_Corner,|corr với log(SalePrice)|<0.02
+LotConfig_FR2,|corr với log(SalePrice)|<0.02
+LotConfig_FR3,dummy hiếm (<10 nhà)
+Neighborhood_Blueste,dummy hiếm (<10 nhà)
+Neighborhood_NPkVill,dummy hiếm (<10 nhà)
+Condition1_PosA,dummy hiếm (<10 nhà)
+Condition1_RRAn,|corr với log(SalePrice)|<0.02
+Condition1_RRNe,dummy hiếm (<10 nhà)
+Condition1_RRNn,dummy hiếm (<10 nhà)
+Condition2_Artery,dummy hiếm (<10 nhà)
+Condition2_Feedr,dummy hiếm (<10 nhà)
+Condition2_PosA,dummy hiếm (<10 nhà)
+Condition2_PosN,dummy hiếm (<10 nhà)
+Condition2_RRAe,dummy hiếm (<10 nhà)
+Condition2_RRAn,dummy hiếm (<10 nhà)
+Condition2_RRNn,dummy hiếm (<10 nhà)
+HouseStyle_2.5Fin,dummy hiếm (<10 nhà)
+HouseStyle_SLvl,|corr với log(SalePrice)|<0.02
+RoofStyle_Mansard,dummy hiếm (<10 nhà)
+RoofStyle_Shed,dummy hiếm (<10 nhà)
+RoofMatl_Membran,dummy hiếm (<10 nhà)
+RoofMatl_Metal,dummy hiếm (<10 nhà)
+RoofMatl_Roll,dummy hiếm (<10 nhà)
+RoofMatl_Tar&Grv,|corr với log(SalePrice)|<0.02
+RoofMatl_WdShake,dummy hiếm (<10 nhà)
+RoofMatl_WdShngl,dummy hiếm (<10 nhà)
+Exterior1st_AsphShn,dummy hiếm (<10 nhà)
+Exterior1st_BrkComm,dummy hiếm (<10 nhà)
+Exterior1st_CBlock,dummy hiếm (<10 nhà)
+Exterior1st_ImStucc,dummy hiếm (<10 nhà)
+Exterior1st_Plywood,|corr với log(SalePrice)|<0.02
+Exterior1st_Stone,dummy hiếm (<10 nhà)
+Exterior2nd_AsphShn,dummy hiếm (<10 nhà)
+Exterior2nd_Brk Cmn,dummy hiếm (<10 nhà)
+Exterior2nd_BrkFace,|corr với log(SalePrice)|<0.02
+Exterior2nd_CBlock,dummy hiếm (<10 nhà)
+Exterior2nd_ImStucc,dummy hiếm (<10 nhà)
+Exterior2nd_Other,dummy hiếm (<10 nhà)
+Exterior2nd_Stone,dummy hiếm (<10 nhà)
+ExterCond_Ex,dummy hiếm (<10 nhà)
+ExterCond_Po,dummy hiếm (<10 nhà)
+Foundation_Stone,dummy hiếm (<10 nhà)
+Foundation_Wood,dummy hiếm (<10 nhà)
+BsmtCond_Po,dummy hiếm (<10 nhà)
+BsmtFinType2_GLQ,|corr với log(SalePrice)|<0.02
+Heating_Floor,dummy hiếm (<10 nhà)
+Heating_Grav,dummy hiếm (<10 nhà)
+Heating_OthW,dummy hiếm (<10 nhà)
+Heating_Wall,dummy hiếm (<10 nhà)
+HeatingQC_Po,dummy hiếm (<10 nhà)
+Electrical_FuseP,dummy hiếm (<10 nhà)
+Electrical_Mix,dummy hiếm (<10 nhà)
+Functional_Maj2,dummy hiếm (<10 nhà)
+Functional_Sev,dummy hiếm (<10 nhà)
+FireplaceQu_Fa,|corr với log(SalePrice)|<0.02
+GarageType_2Types,dummy hiếm (<10 nhà)
+GarageType_CarPort,dummy hiếm (<10 nhà)
+GarageQual_Ex,dummy hiếm (<10 nhà)
+GarageQual_Po,dummy hiếm (<10 nhà)
+GarageCond_Ex,dummy hiếm (<10 nhà)
+GarageCond_Gd,dummy hiếm (<10 nhà)
+GarageCond_Po,dummy hiếm (<10 nhà)
+SaleType_CWD,dummy hiếm (<10 nhà)
+SaleType_Con,dummy hiếm (<10 nhà)
+SaleType_ConLD,dummy hiếm (<10 nhà)
+SaleType_ConLI,dummy hiếm (<10 nhà)
+SaleType_ConLw,dummy hiếm (<10 nhà)
+SaleType_Oth,dummy hiếm (<10 nhà)
+SaleCondition_AdjLand,dummy hiếm (<10 nhà)

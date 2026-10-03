@@ -1,0 +1,6 @@
+experiment,description,features
+EXP-00,Baseline - original features,Original
+EXP-01,Add TotalSF,Original + TotalSF
+EXP-02,Add area + bathroom + outdoor area,Original + TotalSF + TotalBathrooms + TotalPorchSF
+EXP-03,Add all engineered features,Original + 6 engineered features
+EXP-04,Feature selection,19 selected features

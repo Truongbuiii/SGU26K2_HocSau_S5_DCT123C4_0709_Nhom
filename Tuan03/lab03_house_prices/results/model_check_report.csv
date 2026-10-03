@@ -1,0 +1,7 @@
+Feature,Manual,Code,Match
+TotalSF,2566.0,2566.0,True
+TotalBathrooms,3.5,3.5,True
+TotalPorchSF,61.0,61.0,True
+HouseAge,5.0,5.0,True
+RemodAge,5.0,5.0,True
+GarageAge,5.0,5.0,True

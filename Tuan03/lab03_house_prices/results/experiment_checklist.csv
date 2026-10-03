@@ -1,0 +1,17 @@
+item,requirement
+Target,SalePrice
+Modeling target,log1p(SalePrice)
+Exclude Id,Yes
+Exclude SalePrice,Yes
+Exclude LogSalePrice,Yes
+Same train/validation split,Yes
+Same cross-validation strategy,Yes
+Same preprocessing,Fit preprocessing on training data/folds only
+EXP-00,Original features
+EXP-01,Original + TotalSF
+EXP-02,Original + TotalSF + TotalBathrooms + TotalPorchSF
+EXP-03,Original + 6 engineered features
+EXP-04,19 selected features
+Evaluation metric,RMSLE; MAE if available
+Report mean and std,Yes
+Record number of folds,Yes

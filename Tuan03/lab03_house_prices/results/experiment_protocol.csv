@@ -1,0 +1,6 @@
+experiment,feature_definition,engineered_features,description
+EXP-00,Original features,0,Baseline
+EXP-01,Original + TotalSF,1,Add total living/basement area
+EXP-02,Original + TotalSF + TotalBathrooms + TotalPorchSF,3,"Add area, bathroom and outdoor-area features"
+EXP-03,Original + 6 engineered features,6,"Add area, bathroom, outdoor-area and age features"
+EXP-04,19 selected features,19,Feature selection based on RF importance

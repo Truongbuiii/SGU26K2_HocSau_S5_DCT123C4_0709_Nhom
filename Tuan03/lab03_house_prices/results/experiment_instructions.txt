@@ -1,0 +1,73 @@
+
+EXPERIMENT PROTOCOL - CHAPTER 5
+Feature Engineering + Feature Selection
+
+Dataset:
+- Ames Housing / House Prices
+- Target: SalePrice
+- Modeling target: log1p(SalePrice)
+
+Experiments:
+
+EXP-00
+- Baseline
+- Original features
+- No engineered features
+
+EXP-01
+- Original features
+- Add: TotalSF
+
+EXP-02
+- Original features
+- Add: TotalSF
+- Add: TotalBathrooms
+- Add: TotalPorchSF
+
+EXP-03
+- Original features
+- Add: TotalSF
+- Add: TotalBathrooms
+- Add: TotalPorchSF
+- Add: HouseAge
+- Add: RemodAge
+- Add: GarageAge
+
+EXP-04
+- Use exactly the following 19 selected features:
+  OverallQual
+  TotalSF
+  OverallCond
+  GarageArea
+  GarageCars
+  LotArea
+  GrLivArea
+  BsmtFinSF1
+  RemodAge
+  TotalBathrooms
+  1stFlrSF
+  HouseAge
+  YearBuilt
+  BsmtUnfSF
+  YearRemodAdd
+  LotFrontage
+  TotalBsmtSF
+  TotalPorchSF
+  2ndFlrSF
+
+Evaluation:
+- Use the same data split / CV folds for all experiments.
+- Use the same target transformation: log1p(SalePrice).
+- Report RMSLE.
+- Report mean RMSLE and standard deviation across folds.
+- Report MAE if available.
+- Do not add or remove features independently.
+- Do not use SalePrice, LogSalePrice or Id as predictive features.
+- Feature preprocessing must be fitted only on training folds to avoid leakage.
+
+Important:
+EXP-04 feature selection was initially explored using Random Forest importance
+on the full training data. Therefore, the reported EXP-04 CV result should not
+be interpreted as a leakage-free feature-selection estimate unless selection
+is repeated inside each training fold. If EXP-04 uses the fixed 19-feature set,
+label it clearly as a fixed exploratory selection.

@@ -1,0 +1,6 @@
+experiment,features_added,purpose
+EXP-00,None,Baseline
+EXP-01,TotalSF,Evaluate total area feature
+EXP-02,"TotalSF, TotalBathrooms, TotalPorchSF",Evaluate area + bathroom + outdoor area
+EXP-03,"TotalSF, TotalBathrooms, TotalPorchSF, HouseAge, RemodAge, GarageAge",Evaluate area + bathroom + outdoor area + age
+EXP-04,"OverallQual, TotalSF, OverallCond, GarageArea, GarageCars, LotArea, GrLivArea, BsmtFinSF1, RemodAge, TotalBathrooms, 1stFlrSF, HouseAge, YearBuilt, BsmtUnfSF, YearRemodAdd, LotFrontage, TotalBsmtSF, TotalPorchSF, 2ndFlrSF",Evaluate selected feature subset
