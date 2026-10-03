@@ -1,5 +1,5 @@
 # Chương 4 – MLP bằng PyTorch
-*Người phụ trách: Trúc*
+*Người phụ trách: Nguyễn Thị Ngọc Trúc*
 
 ## 4.1. Mục tiêu và thiết lập
 Mục tiêu là dự đoán giá bán nhà Ames (De Cock, 2011) bằng mạng nơ-ron nhiều lớp (MLP) viết bằng PyTorch, dựa trên ý tưởng kiến trúc của ANN Keras trong code mẫu, rồi cải tiến bằng thực nghiệm.

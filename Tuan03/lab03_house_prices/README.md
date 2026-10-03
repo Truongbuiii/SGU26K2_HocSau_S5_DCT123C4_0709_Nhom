@@ -1,17 +1,16 @@
 # LAB 03 - HOUSE PRICES: ADVANCED REGRESSION TECHNIQUES
 ## ĐH SÀI GÒN (SGU) - KHOA CNTT - BỘ MÔN HỌC SÂU (DEEP LEARNING)
-### NHÓM THỰC HIỆN: NHÓM SỐ 3
 
 ---
 
 ### Danh sách thành viên nhóm
 
-| STT | Họ và tên | Mã sinh viên | Lớp | Vai trò & Phân công chính |
+| STT | Họ và tên | Mã sinh viên | Vai trò & Phân công chính |
 | :---: | :--- | :---: | :---: | :--- |
-| 1 | **Bùi Đức Trường** | **3123411319** | DCT123C4 | **Nhóm trưởng** - Nghiên cứu Paper De Cock, EDA, Pipeline chung, Model Check, Tích hợp & Quản lý |
-| 2 | **[Ánh Trâm]** | *(Cập nhật)* | *(Cập nhật)* | Mô hình Machine Learning chuẩn Scikit-learn (Ridge/Lasso/Ensemble), Tuning, Đánh giá CV |
-| 3 | **[Ngọc Trúc]** | *(Cập nhật)* | *(Cập nhật)* | Mạng Deep Learning PyTorch MLP, Training Loop, Loss Curves, Tuning, Ablation Study |
-| 4 | **[Thanh Tuyền]** | *(Cập nhật)* | *(Cập nhật)* | Feature Engineering, Feature Selection, Thiết kế 5 thực nghiệm (EXP-00 -> EXP-04) |
+| 1 | **Bùi Đức Trường** | **3123411319**  | **Nhóm trưởng** - Nghiên cứu Paper De Cock, EDA, Pipeline chung, Model Check, Tích hợp & Quản lý |
+| 2 | **Nguyễn Thị Ánh Trâm** | **3123411306** | Mô hình Machine Learning chuẩn Scikit-learn (Ridge/Lasso/Ensemble), Tuning, Đánh giá CV |
+| 3 | **Nguyễn Thị Ngọc Trúc** | **3123411313** | Mạng Deep Learning PyTorch MLP, Training Loop, Loss Curves, Tuning, Ablation Study |
+| 4 | **Lê Thị Thanh Tuyền** | **3123411332**| Feature Engineering, Feature Selection, Thiết kế 5 thực nghiệm (EXP-00 -> EXP-04) |
 
 ---
 
@@ -71,9 +70,11 @@ lab03_house_prices/
 │   └── submission_mlp.csv                     # Dự đoán từ mô hình PyTorch MLP Ensemble của Trúc
 │
 ├── report/                                    # Báo cáo học phần
+│   ├── BaoCao_TongHop_Lab03_HousePrices.docx  # BẢN BÁO CÁO TỔNG HỢP HOÀN CHỈNH 6 CHƯƠNG (File Word chính thức)
+│   ├── BaoCao_TongHop_Lab03_HousePrices.md    # Bản báo cáo tổng hợp Markdown
+│   ├── Chuong3_NguyenThiAnhTram.docx          # Báo cáo chi tiết Chương 3 (file Word của Ánh Trâm)
 │   ├── Chuong3_Scikit_Learn.md                # Bài viết chi tiết Chương 3 (Ánh Trâm)
-│   ├── Chuong4_MLP_PyTorch.md                 # Bài viết chi tiết Chương 4 (Ngọc Trúc)
-│   └── BaoCao_TongHop_Lab03_HousePrices.md    # BẢN BÁO CÁO TỔNG HỢP HOÀN CHỈNH 6 CHƯƠNG
+│   └── Chuong4_MLP_PyTorch.md                 # Bài viết chi tiết Chương 4 (Ngọc Trúc)
 │
 ├── requirements.txt                           # Các thư viện phụ thuộc
 └── README.md

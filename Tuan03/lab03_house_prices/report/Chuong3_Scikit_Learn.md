@@ -1,5 +1,5 @@
 # Chương 3 – Mô hình Machine Learning bằng Scikit-Learn
-*Người phụ trách: Bích Trâm*
+*Người phụ trách: Nguyễn Thị Ánh Trâm*
 
 ## 3.1. Mục tiêu và Thiết lập Mô hình
 Mục tiêu là xây dựng mô hình hồi quy Machine Learning chuẩn bằng thư viện **Scikit-learn**, làm mốc chuẩn (Benchmark) để đối chứng với mạng Deep Learning PyTorch MLP (Chương 4), đồng thời kiểm tra mức độ cải thiện của mô hình khi bổ sung các đặc trưng phái sinh từ Feature Engineering (Chương 5).

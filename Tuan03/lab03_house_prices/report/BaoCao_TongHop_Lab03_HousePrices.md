@@ -10,16 +10,16 @@
 
 ---
 
-### THÔNG TIN NHÓM THỰC HIỆN: NHÓM SỐ 3
+### THÔNG TIN NHÓM THỰC HIỆN: 
 
-| STT | Họ và tên thành viên | Mã số sinh viên | Lớp | Vai trò | Tỷ lệ đóng góp |
+| STT | Họ và tên thành viên | Mã số sinh viên  | Vai trò | Tỷ lệ đóng góp |
 | :---: | :--- | :---: | :---: | :--- | :---: |
-| 1 | **Bùi Đức Trường** | **3123411319** | DCT123C4 | **Nhóm trưởng** | 100% |
-| 2 | **[Điền Họ và tên bạn Ánh Trâm]** | **[Điền MSSV]** | [Điền Lớp] | Thành viên | 100% |
-| 3 | **[Điền Họ và tên bạn Ngọc Trúc]** | **[Điền MSSV]** | [Điền Lớp] | Thành viên | 100% |
-| 4 | **[Điền Họ và tên bạn Thanh Tuyền]** | **[Điền MSSV]** | [Điền Lớp] | Thành viên | 100% |
+| 1 | **Bùi Đức Trường** | **3123411319**  | **Nhóm trưởng** | 100% |
+| 2 | **Nguyễn Thị Ánh Trâm** | ***3123411306*** |  Thành viên | 100% |
+| 3 | **Nguyễn Thị Ngọc Trúc** | ***3123411313*** | Thành viên | 100% |
+| 4 | **Lê Thị Thanh Tuyền** | ***3123411332*** | Thành viên | 100% |
 
-- **Giảng viên hướng dẫn:** [Điền tên Thầy/Cô phụ trách môn]
+- **Giảng viên hướng dẫn:** Đỗ Như Tài
 - **Năm học:** 2026 - 2027
 
 ---
@@ -29,9 +29,9 @@
 | Thành viên | Nhiệm vụ kỹ thuật phụ trách | Sản phẩm mã nguồn nộp | Phần viết báo cáo |
 | :--- | :--- | :--- | :--- |
 | **Bùi Đức Trường** *(Trưởng nhóm)* | • Nghiên cứu paper Dean De Cock (2011), xác định bài toán & metric RMSLE.<br>• Phân tích EDA phân phối giá, phát hiện ngoại lai $GrLivArea > 4000$.<br>• Thiết lập Pipeline chung & bộ chia 5-Fold Cross Validation không rò rỉ.<br>• Thực hiện kiểm chứng Model Check tính tay độc lập (Hình 2 paper).<br>• Tích hợp toàn bộ dự án, quản lý kiểm thử và hoàn thiện bài nộp. | • `notebooks/01_eda_and_problem_definition.ipynb`<br>• `src/preprocess.py`<br>• `src/model_check.py`<br>• 5 biểu đồ EDA trong `figures/` | • Trang bìa & Bảng phân công<br>• Chương 1: Giới thiệu đề tài<br>• Chương 2: Phân tích bài toán & EDA<br>• Chương 6: Model Check & Kết luận |
-| **[Bạn Ánh Trâm]** | • Xây dựng mô hình Machine Learning chuẩn bằng Scikit-learn (Ridge Regression).<br>• Tinh chỉnh siêu tham số (`alpha`, `solver`) bằng `RandomizedSearchCV` 5-Fold CV.<br>• Chạy thực nghiệm qua các gói đặc trưng (EXP-00 $\to$ EXP-04).<br>• Kiểm chứng sự sụt giảm sai số khi loại bỏ ngoại lai theo paper De Cock.<br>• Xuất file dự đoán Kaggle Scikit-learn. | • `notebooks/02_sklearn_baseline.ipynb`<br>• `notebooks/03_sklearn_tuning.ipynb`<br>• `submissions/submission_sklearn.csv` | • Chương 3: Xây dựng mô hình Machine Learning bằng Scikit-learn |
-| **[Bạn Ngọc Trúc]** | • Chuyển đổi mô hình ANN Keras mẫu sang mạng Deep Learning PyTorch MLP thuần túy.<br>• Thiết kế kiến trúc sâu (Linear $\to$ BatchNorm1d $\to$ ReLU $\to$ Dropout).<br>• Viết Training Loop chuẩn, AdamW, Cosine LR Scheduler, Early Stopping.<br>• Phân tích bóc tách siêu tham số (Ablation Study) và chẩn đoán phần dư 4-in-1.<br>• Xuất file dự đoán Kaggle PyTorch MLP. | • `notebooks/04_pytorch_mlp.ipynb`<br>• `src/mlp_model.py`, `train_mlp.py`<br>• `models/mlp_model.pt`<br>• `submissions/submission_mlp.csv` | • Chương 4: Xây dựng mô hình Deep Learning MLP bằng PyTorch |
-| **[Bạn Thanh Tuyền]** | • Phân tích tương quan các nhóm thuộc tính vật lý và Random Forest Importance.<br>• Lập trình tạo 6 đặc trưng kỹ thuật mới (`TotalSF`, `TotalBathrooms`, `TotalPorchSF`, `HouseAge`, `RemodAge`, `GarageAge`).<br>• Thiết kế Feature Selection (19 đặc trưng quan trọng nhất cho EXP-04).<br>• Thiết kế và quản lý quy chuẩn 5 gói thực nghiệm (Protocol). | • `notebooks/05_feature_engineering.ipynb`<br>• `src/feature_engineering.py`<br>• 6 biểu đồ đặc trưng trong `figures/`<br>• 8 file protocol trong `results/` | • Chương 5: Feature Engineering và Kết quả thực nghiệm đối sánh |
+| **Nguyễn Thị Ánh Trâm** | • Xây dựng mô hình Machine Learning chuẩn bằng Scikit-learn (Ridge Regression).<br>• Tinh chỉnh siêu tham số (`alpha`, `solver`) bằng `RandomizedSearchCV` 5-Fold CV.<br>• Chạy thực nghiệm qua các gói đặc trưng (EXP-00 $\to$ EXP-04).<br>• Kiểm chứng sự sụt giảm sai số khi loại bỏ ngoại lai theo paper De Cock.<br>• Xuất file dự đoán Kaggle Scikit-learn. | • `notebooks/02_sklearn_baseline.ipynb`<br>• `notebooks/03_sklearn_tuning.ipynb`<br>• `submissions/submission_sklearn.csv` | • Chương 3: Xây dựng mô hình Machine Learning bằng Scikit-learn |
+| **Nguyễn Thị Ngọc Trúc** | • Chuyển đổi mô hình ANN Keras mẫu sang mạng Deep Learning PyTorch MLP thuần túy.<br>• Thiết kế kiến trúc sâu (Linear $\to$ BatchNorm1d $\to$ ReLU $\to$ Dropout).<br>• Viết Training Loop chuẩn, AdamW, Cosine LR Scheduler, Early Stopping.<br>• Phân tích bóc tách siêu tham số (Ablation Study) và chẩn đoán phần dư 4-in-1.<br>• Xuất file dự đoán Kaggle PyTorch MLP. | • `notebooks/04_pytorch_mlp.ipynb`<br>• `src/mlp_model.py`, `train_mlp.py`<br>• `models/mlp_model.pt`<br>• `submissions/submission_mlp.csv` | • Chương 4: Xây dựng mô hình Deep Learning MLP bằng PyTorch |
+| **Lê Thị Thanh Tuyền** | • Phân tích tương quan các nhóm thuộc tính vật lý và Random Forest Importance.<br>• Lập trình tạo 6 đặc trưng kỹ thuật mới (`TotalSF`, `TotalBathrooms`, `TotalPorchSF`, `HouseAge`, `RemodAge`, `GarageAge`).<br>• Thiết kế Feature Selection (19 đặc trưng quan trọng nhất cho EXP-04).<br>• Thiết kế và quản lý quy chuẩn 5 gói thực nghiệm (Protocol). | • `notebooks/05_feature_engineering.ipynb`<br>• `src/feature_engineering.py`<br>• 6 biểu đồ đặc trưng trong `figures/`<br>• 8 file protocol trong `results/` | • Chương 5: Feature Engineering và Kết quả thực nghiệm đối sánh |
 
 ---
 
@@ -84,7 +84,7 @@ Khi chuyển đổi mục tiêu sang $y_{log} = \text{log1p}(\text{SalePrice})$,
 ---
 
 # CHƯƠNG 3: MÔ HÌNH MACHINE LEARNING BẰNG SCIKIT-LEARN
-*Người phụ trách: Bích Trâm*
+*Người phụ trách: Nguyễn Thị Ánh Trâm*
 
 ### 3.1. Thiết kế mô hình & Pipeline
 Nhóm chọn **Ridge Regression (Chính quy hóa L2)** làm mô hình chuẩn. Với dữ liệu bảng sau mã hóa One-Hot (mở rộng lên hơn 250 chiều), Ridge kiểm soát đa cộng tuyến và chống overfitting cực tốt:
@@ -112,7 +112,7 @@ $$\text{Best Params} = \{\text{'model\_\_alpha'}: 10.0,\ \text{'model\_\_solver'
 ---
 
 # CHƯƠNG 4: MÔ HÌNH DEEP LEARNING MLP BẰNG PYTORCH
-*Người phụ trách: Ngọc Trúc*
+*Người phụ trách: Nguyễn Thị Ngọc Trúc*
 
 ### 4.1. Kiến trúc mạng nơ-ron sâu Multi-Layer Perceptron
 Mạng được lập trình bằng PyTorch thuần túy (`torch.nn.Module`):
@@ -143,7 +143,7 @@ Qua khảo sát 25 cấu hình bằng Random Search, kết quả Ablation chỉ 
 ---
 
 # CHƯƠNG 5: FEATURE ENGINEERING & KẾT QUẢ THỰC NGHIỆM ĐỐI SÁNH
-*Người phụ trách: Thanh Tuyền*
+*Người phụ trách: Lê Thị Thanh Tuyền*
 
 ### 5.1. Cơ sở xây dựng 6 Đặc trưng Kỹ thuật Mới
 1. **TotalSF:** $\text{TotalBsmtSF} + \text{1stFlrSF} + \text{2ndFlrSF}$ (Tổng diện tích sử dụng thực tế của cả 3 tầng).
@@ -180,11 +180,25 @@ Tác giả Dean De Cock nhấn mạnh sinh viên thường mắc sai lầm ngớ
 **Đối chiếu với Code Pipeline (`src/model_check.py`):**
 Kết quả từ máy tính khớp chính xác **100% (True)** trên tất cả các biến phái sinh. Kiểm tra forward PyTorch khớp sai số dưới $7 \times 10^{-7}$. Đạt chuẩn tin cậy tuyệt đối!
 
-### 6.2. Kết luận
-1. Nhóm đã giải quyết triệt để bài toán Kaggle House Prices dựa trên nền tảng bài báo Dean De Cock (2011).
-2. Xử lý ngoại lai và logarit hóa mục tiêu là 2 bước quan trọng nhất quyết định độ chính xác (giảm RMSE hơn 21%).
-3. Mô hình Deep Learning PyTorch MLP khi được áp dụng đầy đủ chính quy hóa (`BatchNorm`, `Dropout`, `Weight Decay`) đạt kết quả tương đương, thậm chí nhỉnh hơn nhẹ so với Machine Learning chuẩn Scikit-learn (RMSLE: 0.1119 vs 0.1145).
-4. Mã nguồn được tổ chức module hóa sạch sẽ, có tính tái lập (reproducible) cao.
+### 6.2. Kết quả Thực tế trên Bảng xếp hạng Kaggle (Public Leaderboard)
+Sau khi hoàn tất quá trình huấn luyện và kiểm thử chéo 5-Fold CV, nhóm đã xuất 2 file dự đoán và nộp trực tiếp lên hệ thống chấm điểm tự động của cuộc thi Kaggle *House Prices: Advanced Regression Techniques*. Kết quả ghi nhận trên Public Leaderboard như sau:
+
+| STT | File dự đoán nộp Kaggle | Mô hình đại diện | Mô tả kỹ thuật | Điểm số Kaggle (RMSLE) | Đánh giá xếp hạng |
+| :---: | :--- | :--- | :--- | :---: | :--- |
+| 1 | `submission_sklearn.csv` | Scikit-learn Ridge | Hồi quy Ridge chuẩn hóa ($\alpha=10$, `saga`) | **0.13387** | Baseline ML vững chắc |
+| 2 | `submission_mlp.csv` | PyTorch MLP Ensemble | Mạng nơ-ron sâu MLP (Ensemble 10 seeds + Clip ngoại lai) | **0.11912** | **Vượt trội (~Top 10-15% không dùng external data)** |
+
+![Minh chứng kết quả nộp bài Kaggle](../figures/kaggle_leaderboard_submission.png)
+
+**Nhận xét phân tích kết quả Kaggle:**
+1. **Khả năng tổng quát hóa (Generalization) vượt trội của Deep Learning:** Mặc dù trên tập Train qua 5-Fold CV hai mô hình cho chỉ số gần tương đương (0.1145 vs 0.1119), nhưng trên tập kiểm tra thực tế (Test set gồm 1459 căn chưa từng thấy), mạng Deep Learning PyTorch MLP thể hiện sự áp đảo hoàn toàn khi đạt **0.11912** so với **0.13387** của Scikit-learn Ridge (cải thiện hơn **11.0%** sai số RMSLE).
+2. **Hiệu quả của chiến lược Regularization & Ensemble:** Mốc điểm **0.11912** (< 0.12) là một kết quả cực kỳ ấn tượng trên Kaggle đối với họ mô hình mạng nơ-ron MLP trên dữ liệu bảng, chứng minh tính đúng đắn của việc kết hợp BatchNorm1d, Dropout(0.2), Weight Decay (0.01) cùng cơ chế Ensemble đa hạt giống (10 seeds).
+
+### 6.3. Kết luận và Hướng phát triển
+1. Nhóm đã giải quyết triệt để và toàn diện bài toán Kaggle House Prices dựa trên nền tảng bài báo khoa học Dean De Cock (2011).
+2. Xử lý ngoại lai ($GrLivArea > 4000$) và biến đổi logarit mục tiêu là 2 bước nền tảng quyết định độ chính xác (giảm hơn 21% sai số RMSE).
+3. Mạng Deep Learning PyTorch MLP khi được áp dụng đầy đủ các cơ chế chính quy hóa hiện đại đã đạt mốc RMSLE thực tế **0.11912** trên Kaggle, khẳng định tiềm năng vượt bậc của Deep Learning trên dữ liệu bảng.
+4. Toàn bộ mã nguồn, dữ liệu, 5 notebook và báo cáo được cấu trúc bài bản, đồng bộ và có tính tái lập (reproducibility) 100%.
 
 ---
 *(Hết báo cáo)*

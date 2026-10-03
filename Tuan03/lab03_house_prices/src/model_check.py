@@ -74,5 +74,9 @@ def perform_model_check():
     return report_df
 
 
+def main():
+    return perform_model_check()
+
+
 if __name__ == "__main__":
-    perform_model_check()
+    main()
