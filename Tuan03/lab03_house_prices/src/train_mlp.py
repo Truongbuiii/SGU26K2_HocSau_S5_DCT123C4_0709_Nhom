@@ -161,4 +161,5 @@ def final(n_seeds=10):
 
 
 if __name__ == "__main__":
-    {"tune": tune, "experiments": experiments, "final": final}[sys.argv[1]]()
+    cmd = sys.argv[1].lstrip("-") if len(sys.argv) > 1 else "final"
+    {"tune": tune, "experiments": experiments, "final": final}[cmd]()
