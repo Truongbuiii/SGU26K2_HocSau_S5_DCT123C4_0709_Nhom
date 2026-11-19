@@ -1,0 +1,33 @@
+==============================================================================
+Run: E3-01 | Name: no_aug | Seed: 42 | Runner: TV1
+Arch: medium | Act: relu | BN: False | ConvDrop: 0.2 | Params: 11,327,303
+Optimizer: adam (lr=0.001, wd=0.0) | Scheduler: none | Batch: 64 | Device: cuda (Tesla T4)
+==============================================================================
+Epoch 001/100 | train_loss: 1.8558 | train_acc: 0.2484 | val_loss: 1.8289 | val_acc: 0.2536 | lr: 1.00e-03 | time: 19.17s  [*BEST*]
+Epoch 002/100 | train_loss: 1.6622 | train_acc: 0.3353 | val_loss: 1.4964 | val_acc: 0.4171 | lr: 1.00e-03 | time: 18.84s  [*BEST*]
+Epoch 003/100 | train_loss: 1.4563 | train_acc: 0.4360 | val_loss: 1.3366 | val_acc: 0.4909 | lr: 1.00e-03 | time: 19.21s  [*BEST*]
+Epoch 004/100 | train_loss: 1.3365 | train_acc: 0.4852 | val_loss: 1.2529 | val_acc: 0.5230 | lr: 1.00e-03 | time: 19.60s  [*BEST*]
+Epoch 005/100 | train_loss: 1.2527 | train_acc: 0.5197 | val_loss: 1.2093 | val_acc: 0.5364 | lr: 1.00e-03 | time: 19.23s  [*BEST*]
+Epoch 006/100 | train_loss: 1.1932 | train_acc: 0.5459 | val_loss: 1.1916 | val_acc: 0.5520 | lr: 1.00e-03 | time: 19.14s  [*BEST*]
+Epoch 007/100 | train_loss: 1.1341 | train_acc: 0.5702 | val_loss: 1.1530 | val_acc: 0.5695 | lr: 1.00e-03 | time: 19.21s  [*BEST*]
+Epoch 008/100 | train_loss: 1.0829 | train_acc: 0.5879 | val_loss: 1.1395 | val_acc: 0.5698 | lr: 1.00e-03 | time: 19.31s  [*BEST*]
+Epoch 009/100 | train_loss: 1.0273 | train_acc: 0.6093 | val_loss: 1.1072 | val_acc: 0.5784 | lr: 1.00e-03 | time: 19.20s  [*BEST*]
+Epoch 010/100 | train_loss: 0.9802 | train_acc: 0.6290 | val_loss: 1.1203 | val_acc: 0.5862 | lr: 1.00e-03 | time: 19.18s
+Epoch 011/100 | train_loss: 0.9275 | train_acc: 0.6536 | val_loss: 1.0988 | val_acc: 0.5960 | lr: 1.00e-03 | time: 19.21s  [*BEST*]
+Epoch 012/100 | train_loss: 0.8759 | train_acc: 0.6705 | val_loss: 1.1659 | val_acc: 0.5913 | lr: 1.00e-03 | time: 19.22s
+Epoch 013/100 | train_loss: 0.8210 | train_acc: 0.6928 | val_loss: 1.0930 | val_acc: 0.5999 | lr: 1.00e-03 | time: 19.19s  [*BEST*]
+Epoch 014/100 | train_loss: 0.7742 | train_acc: 0.7109 | val_loss: 1.1839 | val_acc: 0.6007 | lr: 1.00e-03 | time: 19.22s
+Epoch 015/100 | train_loss: 0.7234 | train_acc: 0.7328 | val_loss: 1.1861 | val_acc: 0.5996 | lr: 1.00e-03 | time: 19.18s
+Epoch 016/100 | train_loss: 0.6631 | train_acc: 0.7549 | val_loss: 1.1956 | val_acc: 0.6043 | lr: 1.00e-03 | time: 19.19s
+Epoch 017/100 | train_loss: 0.6220 | train_acc: 0.7699 | val_loss: 1.2277 | val_acc: 0.6032 | lr: 1.00e-03 | time: 19.21s
+Epoch 018/100 | train_loss: 0.5838 | train_acc: 0.7852 | val_loss: 1.2462 | val_acc: 0.5963 | lr: 1.00e-03 | time: 19.22s
+Epoch 019/100 | train_loss: 0.5461 | train_acc: 0.8017 | val_loss: 1.2638 | val_acc: 0.6046 | lr: 1.00e-03 | time: 19.19s
+Epoch 020/100 | train_loss: 0.5087 | train_acc: 0.8151 | val_loss: 1.3533 | val_acc: 0.6024 | lr: 1.00e-03 | time: 19.18s
+Epoch 021/100 | train_loss: 0.4838 | train_acc: 0.8246 | val_loss: 1.3773 | val_acc: 0.6063 | lr: 1.00e-03 | time: 19.19s
+Epoch 022/100 | train_loss: 0.4616 | train_acc: 0.8347 | val_loss: 1.4244 | val_acc: 0.6133 | lr: 1.00e-03 | time: 19.17s
+Epoch 023/100 | train_loss: 0.4280 | train_acc: 0.8456 | val_loss: 1.4321 | val_acc: 0.6088 | lr: 1.00e-03 | time: 19.20s
+[EarlyStopping] Dừng sớm tại epoch 23 (không cải thiện val_loss sau 10 epoch). Best epoch: 13 (best_val_loss=1.0930, val_acc=0.5999).
+------------------------------------------------------------------------------
+[FINISHED] Hoàn tất run tại: /kaggle/working/repo/Tuan11/results/runs/E3-01_no_aug_s42
+           Best Epoch: 13 | Best Val Loss: 1.0930 | Val Acc tại Best Epoch: 0.5999 | Tổng thời gian: 448.10s
+           Đã lưu biểu đồ đường cong huấn luyện: /kaggle/working/repo/Tuan11/results/runs/E3-01_no_aug_s42/learning_curves.png
