@@ -1,0 +1,39 @@
+==============================================================================
+Run: E2-03 | Name: adam_lr1e-2 | Seed: 42 | Runner: TV3
+Arch: medium | Act: relu | BN: False | ConvDrop: 0.2 | Params: 11,327,303
+Optimizer: adam (lr=0.01, wd=0.0) | Scheduler: none | Batch: 64 | Device: cuda (Tesla T4)
+==============================================================================
+Epoch 001/100 | train_loss: 85.5925 | train_acc: 0.2457 | val_loss: 1.8155 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.41s  [*BEST*]
+Epoch 002/100 | train_loss: 1.8134 | train_acc: 0.2513 | val_loss: 1.8116 | val_acc: 0.2494 | lr: 1.00e-02 | time: 18.82s  [*BEST*]
+Epoch 003/100 | train_loss: 1.8121 | train_acc: 0.2513 | val_loss: 1.8126 | val_acc: 0.2494 | lr: 1.00e-02 | time: 18.91s
+Epoch 004/100 | train_loss: 1.8111 | train_acc: 0.2513 | val_loss: 1.8119 | val_acc: 0.2494 | lr: 1.00e-02 | time: 18.98s
+Epoch 005/100 | train_loss: 1.8106 | train_acc: 0.2513 | val_loss: 1.8127 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.18s
+Epoch 006/100 | train_loss: 1.8107 | train_acc: 0.2513 | val_loss: 1.8120 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.28s
+Epoch 007/100 | train_loss: 1.8104 | train_acc: 0.2513 | val_loss: 1.8128 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.23s
+Epoch 008/100 | train_loss: 1.8106 | train_acc: 0.2513 | val_loss: 1.8129 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.17s
+Epoch 009/100 | train_loss: 1.8106 | train_acc: 0.2513 | val_loss: 1.8113 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.17s  [*BEST*]
+Epoch 010/100 | train_loss: 1.8105 | train_acc: 0.2513 | val_loss: 1.8118 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.22s
+Epoch 011/100 | train_loss: 1.8107 | train_acc: 0.2513 | val_loss: 1.8113 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.25s
+Epoch 012/100 | train_loss: 1.8103 | train_acc: 0.2513 | val_loss: 1.8104 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.21s  [*BEST*]
+Epoch 013/100 | train_loss: 1.8104 | train_acc: 0.2513 | val_loss: 1.8115 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.23s
+Epoch 014/100 | train_loss: 1.8103 | train_acc: 0.2513 | val_loss: 1.8109 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.20s
+Epoch 015/100 | train_loss: 1.8104 | train_acc: 0.2513 | val_loss: 1.8115 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.22s
+Epoch 016/100 | train_loss: 1.8106 | train_acc: 0.2513 | val_loss: 1.8127 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.20s
+Epoch 017/100 | train_loss: 1.8103 | train_acc: 0.2513 | val_loss: 1.8116 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.20s
+Epoch 018/100 | train_loss: 1.8103 | train_acc: 0.2513 | val_loss: 1.8123 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.19s
+Epoch 019/100 | train_loss: 1.8105 | train_acc: 0.2513 | val_loss: 1.8104 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.19s  [*BEST*]
+Epoch 020/100 | train_loss: 1.8105 | train_acc: 0.2513 | val_loss: 1.8115 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.16s
+Epoch 021/100 | train_loss: 1.8106 | train_acc: 0.2513 | val_loss: 1.8110 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.19s
+Epoch 022/100 | train_loss: 1.8106 | train_acc: 0.2513 | val_loss: 1.8116 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.21s
+Epoch 023/100 | train_loss: 1.8103 | train_acc: 0.2513 | val_loss: 1.8120 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.21s
+Epoch 024/100 | train_loss: 1.8105 | train_acc: 0.2513 | val_loss: 1.8119 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.22s
+Epoch 025/100 | train_loss: 1.8104 | train_acc: 0.2513 | val_loss: 1.8107 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.25s
+Epoch 026/100 | train_loss: 1.8105 | train_acc: 0.2513 | val_loss: 1.8114 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.22s
+Epoch 027/100 | train_loss: 1.8104 | train_acc: 0.2513 | val_loss: 1.8127 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.22s
+Epoch 028/100 | train_loss: 1.8102 | train_acc: 0.2513 | val_loss: 1.8143 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.22s
+Epoch 029/100 | train_loss: 1.8104 | train_acc: 0.2513 | val_loss: 1.8111 | val_acc: 0.2494 | lr: 1.00e-02 | time: 19.21s
+[EarlyStopping] Dừng sớm tại epoch 29 (không cải thiện val_loss sau 10 epoch). Best epoch: 19 (best_val_loss=1.8104, val_acc=0.2494).
+------------------------------------------------------------------------------
+[FINISHED] Hoàn tất run tại: results/runs/E2-03_adam_lr1e-2_s42
+           Best Epoch: 19 | Best Val Loss: 1.8104 | Val Acc tại Best Epoch: 0.2494 | Tổng thời gian: 563.96s
+           Đã lưu biểu đồ đường cong huấn luyện: results/runs/E2-03_adam_lr1e-2_s42/learning_curves.png

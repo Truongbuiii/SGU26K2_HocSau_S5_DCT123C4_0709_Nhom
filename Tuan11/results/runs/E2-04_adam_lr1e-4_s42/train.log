@@ -1,0 +1,63 @@
+==============================================================================
+Run: E2-04 | Name: adam_lr1e-4 | Seed: 42 | Runner: TV3
+Arch: medium | Act: relu | BN: False | ConvDrop: 0.2 | Params: 11,327,303
+Optimizer: adam (lr=0.0001, wd=0.0) | Scheduler: none | Batch: 64 | Device: cuda (Tesla T4)
+==============================================================================
+Epoch 001/100 | train_loss: 1.8431 | train_acc: 0.2429 | val_loss: 1.8237 | val_acc: 0.2491 | lr: 1.00e-04 | time: 20.38s  [*BEST*]
+Epoch 002/100 | train_loss: 1.7842 | train_acc: 0.2678 | val_loss: 1.6931 | val_acc: 0.3377 | lr: 1.00e-04 | time: 19.85s  [*BEST*]
+Epoch 003/100 | train_loss: 1.6709 | train_acc: 0.3424 | val_loss: 1.4953 | val_acc: 0.4174 | lr: 1.00e-04 | time: 19.98s  [*BEST*]
+Epoch 004/100 | train_loss: 1.5438 | train_acc: 0.4055 | val_loss: 1.4089 | val_acc: 0.4575 | lr: 1.00e-04 | time: 20.11s  [*BEST*]
+Epoch 005/100 | train_loss: 1.4412 | train_acc: 0.4450 | val_loss: 1.3162 | val_acc: 0.4976 | lr: 1.00e-04 | time: 20.24s  [*BEST*]
+Epoch 006/100 | train_loss: 1.3636 | train_acc: 0.4767 | val_loss: 1.2473 | val_acc: 0.5235 | lr: 1.00e-04 | time: 20.32s  [*BEST*]
+Epoch 007/100 | train_loss: 1.3087 | train_acc: 0.4997 | val_loss: 1.2195 | val_acc: 0.5241 | lr: 1.00e-04 | time: 20.38s  [*BEST*]
+Epoch 008/100 | train_loss: 1.2620 | train_acc: 0.5163 | val_loss: 1.1768 | val_acc: 0.5386 | lr: 1.00e-04 | time: 20.45s  [*BEST*]
+Epoch 009/100 | train_loss: 1.2357 | train_acc: 0.5290 | val_loss: 1.1615 | val_acc: 0.5548 | lr: 1.00e-04 | time: 20.52s  [*BEST*]
+Epoch 010/100 | train_loss: 1.2081 | train_acc: 0.5430 | val_loss: 1.1722 | val_acc: 0.5444 | lr: 1.00e-04 | time: 20.60s
+Epoch 011/100 | train_loss: 1.1834 | train_acc: 0.5488 | val_loss: 1.1396 | val_acc: 0.5637 | lr: 1.00e-04 | time: 20.66s  [*BEST*]
+Epoch 012/100 | train_loss: 1.1573 | train_acc: 0.5620 | val_loss: 1.1302 | val_acc: 0.5737 | lr: 1.00e-04 | time: 20.68s  [*BEST*]
+Epoch 013/100 | train_loss: 1.1429 | train_acc: 0.5641 | val_loss: 1.0935 | val_acc: 0.5882 | lr: 1.00e-04 | time: 20.66s  [*BEST*]
+Epoch 014/100 | train_loss: 1.1256 | train_acc: 0.5723 | val_loss: 1.0772 | val_acc: 0.5926 | lr: 1.00e-04 | time: 20.73s  [*BEST*]
+Epoch 015/100 | train_loss: 1.1048 | train_acc: 0.5827 | val_loss: 1.0647 | val_acc: 0.5993 | lr: 1.00e-04 | time: 20.68s  [*BEST*]
+Epoch 016/100 | train_loss: 1.0874 | train_acc: 0.5885 | val_loss: 1.0896 | val_acc: 0.5918 | lr: 1.00e-04 | time: 20.67s
+Epoch 017/100 | train_loss: 1.0838 | train_acc: 0.5905 | val_loss: 1.0472 | val_acc: 0.6041 | lr: 1.00e-04 | time: 20.71s  [*BEST*]
+Epoch 018/100 | train_loss: 1.0641 | train_acc: 0.5979 | val_loss: 1.0392 | val_acc: 0.6080 | lr: 1.00e-04 | time: 20.68s  [*BEST*]
+Epoch 019/100 | train_loss: 1.0419 | train_acc: 0.6088 | val_loss: 1.0273 | val_acc: 0.6174 | lr: 1.00e-04 | time: 20.70s  [*BEST*]
+Epoch 020/100 | train_loss: 1.0369 | train_acc: 0.6067 | val_loss: 1.0542 | val_acc: 0.6138 | lr: 1.00e-04 | time: 20.69s
+Epoch 021/100 | train_loss: 1.0231 | train_acc: 0.6138 | val_loss: 1.0688 | val_acc: 0.6013 | lr: 1.00e-04 | time: 20.69s
+Epoch 022/100 | train_loss: 1.0145 | train_acc: 0.6149 | val_loss: 1.0208 | val_acc: 0.6180 | lr: 1.00e-04 | time: 20.68s  [*BEST*]
+Epoch 023/100 | train_loss: 1.0042 | train_acc: 0.6205 | val_loss: 1.0040 | val_acc: 0.6278 | lr: 1.00e-04 | time: 20.68s  [*BEST*]
+Epoch 024/100 | train_loss: 0.9914 | train_acc: 0.6273 | val_loss: 0.9989 | val_acc: 0.6333 | lr: 1.00e-04 | time: 20.68s  [*BEST*]
+Epoch 025/100 | train_loss: 0.9822 | train_acc: 0.6287 | val_loss: 1.0156 | val_acc: 0.6322 | lr: 1.00e-04 | time: 20.66s
+Epoch 026/100 | train_loss: 0.9672 | train_acc: 0.6345 | val_loss: 0.9992 | val_acc: 0.6361 | lr: 1.00e-04 | time: 20.65s
+Epoch 027/100 | train_loss: 0.9610 | train_acc: 0.6373 | val_loss: 1.0020 | val_acc: 0.6369 | lr: 1.00e-04 | time: 20.69s
+Epoch 028/100 | train_loss: 0.9515 | train_acc: 0.6442 | val_loss: 0.9832 | val_acc: 0.6414 | lr: 1.00e-04 | time: 20.69s  [*BEST*]
+Epoch 029/100 | train_loss: 0.9441 | train_acc: 0.6429 | val_loss: 1.0197 | val_acc: 0.6364 | lr: 1.00e-04 | time: 20.71s
+Epoch 030/100 | train_loss: 0.9360 | train_acc: 0.6506 | val_loss: 0.9835 | val_acc: 0.6408 | lr: 1.00e-04 | time: 20.68s
+Epoch 031/100 | train_loss: 0.9333 | train_acc: 0.6501 | val_loss: 0.9834 | val_acc: 0.6428 | lr: 1.00e-04 | time: 20.68s
+Epoch 032/100 | train_loss: 0.9171 | train_acc: 0.6545 | val_loss: 0.9829 | val_acc: 0.6395 | lr: 1.00e-04 | time: 20.59s  [*BEST*]
+Epoch 033/100 | train_loss: 0.9109 | train_acc: 0.6586 | val_loss: 0.9780 | val_acc: 0.6470 | lr: 1.00e-04 | time: 20.51s  [*BEST*]
+Epoch 034/100 | train_loss: 0.9008 | train_acc: 0.6614 | val_loss: 0.9978 | val_acc: 0.6478 | lr: 1.00e-04 | time: 20.48s
+Epoch 035/100 | train_loss: 0.8912 | train_acc: 0.6647 | val_loss: 0.9633 | val_acc: 0.6531 | lr: 1.00e-04 | time: 20.52s  [*BEST*]
+Epoch 036/100 | train_loss: 0.8853 | train_acc: 0.6666 | val_loss: 0.9707 | val_acc: 0.6523 | lr: 1.00e-04 | time: 20.51s
+Epoch 037/100 | train_loss: 0.8745 | train_acc: 0.6709 | val_loss: 0.9934 | val_acc: 0.6520 | lr: 1.00e-04 | time: 20.52s
+Epoch 038/100 | train_loss: 0.8660 | train_acc: 0.6771 | val_loss: 0.9712 | val_acc: 0.6570 | lr: 1.00e-04 | time: 20.59s
+Epoch 039/100 | train_loss: 0.8583 | train_acc: 0.6794 | val_loss: 0.9558 | val_acc: 0.6598 | lr: 1.00e-04 | time: 20.55s  [*BEST*]
+Epoch 040/100 | train_loss: 0.8579 | train_acc: 0.6776 | val_loss: 0.9712 | val_acc: 0.6601 | lr: 1.00e-04 | time: 20.58s
+Epoch 041/100 | train_loss: 0.8443 | train_acc: 0.6811 | val_loss: 0.9718 | val_acc: 0.6542 | lr: 1.00e-04 | time: 20.62s
+Epoch 042/100 | train_loss: 0.8367 | train_acc: 0.6856 | val_loss: 0.9691 | val_acc: 0.6581 | lr: 1.00e-04 | time: 20.61s
+Epoch 043/100 | train_loss: 0.8279 | train_acc: 0.6896 | val_loss: 0.9394 | val_acc: 0.6640 | lr: 1.00e-04 | time: 20.59s  [*BEST*]
+Epoch 044/100 | train_loss: 0.8221 | train_acc: 0.6920 | val_loss: 0.9523 | val_acc: 0.6620 | lr: 1.00e-04 | time: 20.62s
+Epoch 045/100 | train_loss: 0.8122 | train_acc: 0.6949 | val_loss: 0.9613 | val_acc: 0.6637 | lr: 1.00e-04 | time: 20.57s
+Epoch 046/100 | train_loss: 0.8085 | train_acc: 0.6969 | val_loss: 0.9649 | val_acc: 0.6670 | lr: 1.00e-04 | time: 20.61s
+Epoch 047/100 | train_loss: 0.8038 | train_acc: 0.6971 | val_loss: 0.9535 | val_acc: 0.6690 | lr: 1.00e-04 | time: 20.62s
+Epoch 048/100 | train_loss: 0.7908 | train_acc: 0.7057 | val_loss: 0.9841 | val_acc: 0.6592 | lr: 1.00e-04 | time: 20.55s
+Epoch 049/100 | train_loss: 0.7908 | train_acc: 0.7033 | val_loss: 0.9497 | val_acc: 0.6812 | lr: 1.00e-04 | time: 20.55s
+Epoch 050/100 | train_loss: 0.7745 | train_acc: 0.7102 | val_loss: 0.9546 | val_acc: 0.6709 | lr: 1.00e-04 | time: 20.58s
+Epoch 051/100 | train_loss: 0.7713 | train_acc: 0.7113 | val_loss: 0.9561 | val_acc: 0.6601 | lr: 1.00e-04 | time: 20.54s
+Epoch 052/100 | train_loss: 0.7686 | train_acc: 0.7141 | val_loss: 0.9678 | val_acc: 0.6704 | lr: 1.00e-04 | time: 20.57s
+Epoch 053/100 | train_loss: 0.7594 | train_acc: 0.7172 | val_loss: 0.9743 | val_acc: 0.6676 | lr: 1.00e-04 | time: 20.60s
+[EarlyStopping] Dừng sớm tại epoch 53 (không cải thiện val_loss sau 10 epoch). Best epoch: 43 (best_val_loss=0.9394, val_acc=0.6640).
+------------------------------------------------------------------------------
+[FINISHED] Hoàn tất run tại: results/runs/E2-04_adam_lr1e-4_s42
+           Best Epoch: 43 | Best Val Loss: 0.9394 | Val Acc tại Best Epoch: 0.6640 | Tổng thời gian: 1104.83s
+           Đã lưu biểu đồ đường cong huấn luyện: results/runs/E2-04_adam_lr1e-4_s42/learning_curves.png
