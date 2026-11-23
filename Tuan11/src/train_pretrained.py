@@ -1,6 +1,6 @@
 """TV4 E4 transfer-learning runs (ResNet18 / VGG16 ImageNet weights).
 
-Author (TV4): [fill in name and student ID] | Role: E4 and final model analysis
+Author: Lê Thị Thanh Tuyền – 3123411332 | TV4: E4 and final model analysis | 24/11/2026
 
 Run from Tuan11/: python src/train_pretrained.py --arch resnet18 --seed 42
 Kaggle Internet must be enabled for the first run to download torchvision weights.

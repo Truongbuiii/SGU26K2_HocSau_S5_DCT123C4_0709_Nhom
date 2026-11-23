@@ -1,63 +1,101 @@
-# Hướng dẫn TV4: E4, trực quan hóa và phần báo cáo
+# Hướng dẫn hoàn tất TV4 trên Kaggle
 
-Tài liệu phân công yêu cầu TV4 chạy E4 gồm fine-tune ResNet18, VGG16 và mô hình tốt nhất với seed 42/43/44; chọn mô hình theo PublicTest (validation), chỉ dùng PrivateTest để báo cáo kết quả cuối. Không kết luận trước fine-tune thất bại. Người chạy tự giữ Kaggle Notebook Version và ảnh minh chứng.
+**Người phụ trách:** Lê Thị Thanh Tuyền – 3123411332.
 
-## 1. Chuẩn bị Kaggle Notebook
+Theo phân công, TV4 phụ trách trực quan hóa filter, E4 pretrained, chạy mô hình tốt nhất với nhiều seed, phân tích, report và slide. Code đã có trong `src/`; hướng dẫn này chỉ rõ những phần phải chạy để tạo kết quả thật.
 
-1. Tạo Notebook mới, chọn **Accelerator = GPU T4** (P100 cũng được). Bật **Internet = On** để lần đầu tải ImageNet pretrained weights.
-2. Chọn **Add Input** và thêm FER2013 CSV dataset của nhóm. File phải có `emotion`, `pixels`, `Usage`, với 28,709 Training / 3,589 PublicTest / 3,589 PrivateTest.
-3. Đưa thư mục `Tuan11` lên Kaggle bằng một trong hai cách: add repo dạng Kaggle Dataset (khuyến nghị, dữ liệu code riêng với CSV), hoặc clone repo GitHub. Nếu clone:
+## Trạng thái repo hiện tại
+
+- Bảng `results/summary.csv` có baseline và kết quả E2/E3. Ứng viên hiện có điểm validation cao nhất là **E2-04** (Medium, Adam, lr=1e-4; val accuracy 66.397%). Cần TV2/TV3 xác nhận đã tổng hợp đủ E1–E3 trước khi nhóm chốt cấu hình. Chỉ chọn theo validation, không chọn theo cột test.
+- Các thư mục run đã commit không có `best.pt`. Chỉ có log, lịch sử và hình đánh giá; không thể dựng feature map/activation từ các file này. Cần chạy lại cấu hình CNN cuối trên Kaggle để giữ checkpoint.
+- FER2013 CSV không nằm trong repo. Cần attach CSV riêng trong Kaggle.
+- Run E4, ảnh minh chứng Kaggle, nhật ký TV4 và kết quả test cuối chưa có.
+
+## 1. Tạo Kaggle Notebook
+
+1. Tạo Notebook mới, bật **Internet** để tải ImageNet pretrained weights, chọn **GPU T4** (hoặc GPU khả dụng khác).
+2. Chọn **Add Input** và thêm FER2013 CSV của nhóm. Kiểm tra đúng file `fer2013.csv`, có cột `emotion`, `pixels`, `Usage` và các split `Training`, `PublicTest`, `PrivateTest` lần lượt 28,709 / 3,589 / 3,589.
+3. Trong cell đầu, clone repo:
 
 ```python
-!git clone <URL_REPO_CUA_NHOM> /kaggle/working/repo
+!git clone https://github.com/Truongbuiii/SGU26K2_HocSau_S5_DCT123C4_0709_Nhom.git /kaggle/working/repo
 %cd /kaggle/working/repo/Tuan11
 ```
 
-4. Tìm đường dẫn CSV đã attach. Kaggle thường đặt input trong `/kaggle/input/<dataset-slug>/fer2013.csv`. Xem đường dẫn:
+4. Tìm file CSV:
 
 ```python
 !find /kaggle/input -name fer2013.csv
 ```
 
-## 2. Chạy hai thí nghiệm pretrained
-
-Chạy từ `Tuan11/`. Thay đường dẫn CSV bằng kết quả `find`:
+Đặt biến bằng đường dẫn thực tế được in ra:
 
 ```python
-CSV = "/kaggle/input/fer2013/fer2013.csv"
+CSV = "/kaggle/input/<dataset-slug>/fer2013.csv"
+!nvidia-smi
+!FER2013_CSV="$CSV" python src/dataset.py
+```
+
+Nếu Kaggle báo thiếu package, cài package còn thiếu. Không cài đè PyTorch/CUDA đang có sẵn nếu import và GPU đã hoạt động.
+
+## 2. Chạy E4-01 ResNet18 và E4-02 VGG16
+
+```python
 !python src/train_pretrained.py --arch resnet18 --seed 42 --csv_path "$CSV" --output_root /kaggle/working/results/runs
 !python src/train_pretrained.py --arch vgg16 --seed 42 --csv_path "$CSV" --output_root /kaggle/working/results/runs
 ```
 
-Mỗi run ghi `config.json`, `env.json`, `history.csv`, `best_metrics.json`, và `best.pt`. VGG16 nặng hơn nhiều; nếu Kaggle hết giờ thì giữ nguyên run dở, ghi rõ vào nhật ký, rồi chạy lại với cùng cấu hình. Không tự ý so sánh giữa các run có AMP khác nhau; mặc định script bật AMP trên GPU.
+Mỗi run chọn checkpoint theo `val_loss` và ghi `config.json`, `env.json`, `history.csv`, `best_metrics.json`, `best.pt`. Script bật AMP trên GPU; giữ cùng thiết lập cho cả hai thí nghiệm. VGG16 nặng hơn. Nếu session ngắt, lưu artifacts đang có và ghi run lỗi/dở vào nhật ký trước khi quyết định chạy lại.
 
-Sau khi TV2/TV3 tổng hợp E1–E3 và nhóm họp chọn cấu hình tốt nhất theo **val**, chạy đúng cấu hình CNN đó cho seed 42, 43, 44 theo `train.py` / giao diện `train(cfg)` mà TV3 cung cấp. Tính trung bình và độ lệch chuẩn của val accuracy. Run E4-01, E4-02 và ba seed cuối tạo tối thiểu năm run E4.
+## 3. Chạy cấu hình tốt nhất với seed 42, 43, 44
 
-## 3. Tạo hình trực quan hóa CNN cuối
-
-Chọn thư mục checkpoint của mô hình CNN cuối (ví dụ `results/runs/E3-06_meanstd_s42`). Script đọc `config.json` và `best.pt`, rồi lưu ba PNG vào `results/figures/`:
+Trước khi chạy, nhóm chốt cấu hình theo bảng đầy đủ E1–E3. Theo summary hiện tại, E2-04 là ứng viên: Medium, ReLU, không BN, conv dropout 0.2, FC dropout 0.5, `flip_affine`, `div255`, Adam `lr=1e-4`, batch 64, tối đa 100 epoch, patience 10. Nếu TV2/TV3 xác nhận cấu hình này, chạy:
 
 ```python
-!python src/visualize_filters.py --run_dir results/runs/E3-06_meanstd_s42 --csv_path "$CSV"
-!python src/gradcam.py --run_dir results/runs/E3-06_meanstd_s42 --csv_path "$CSV" --out results/figures/gradcam_final.png
+!FER2013_CSV="$CSV" python src/train.py --exp_id E4-03 --exp_name best_seed42 --runner TV4 --arch medium --activation relu --conv_dropout 0.2 --fc_dropout 0.5 --optimizer adam --lr 1e-4 --batch_size 64 --aug_name flip_affine --norm div255 --epochs 100 --patience 10 --seed 42
+!FER2013_CSV="$CSV" python src/train.py --exp_id E4-03 --exp_name best_seed43 --runner TV4 --arch medium --activation relu --conv_dropout 0.2 --fc_dropout 0.5 --optimizer adam --lr 1e-4 --batch_size 64 --aug_name flip_affine --norm div255 --epochs 100 --patience 10 --seed 43
+!FER2013_CSV="$CSV" python src/train.py --exp_id E4-03 --exp_name best_seed44 --runner TV4 --arch medium --activation relu --conv_dropout 0.2 --fc_dropout 0.5 --optimizer adam --lr 1e-4 --batch_size 64 --aug_name flip_affine --norm div255 --epochs 100 --patience 10 --seed 44
 ```
 
-Ba hình bắt buộc từ `visualize_filters.py`: kernel conv đầu, feature map conv cuối trên một ảnh mỗi lớp, và activation maximization cho một số channel conv cuối. Grad-CAM là phần tùy chọn; hình đang dùng ảnh PublicTest và nhãn dự đoán.
+Các cấu hình E1–E3 hiện có ghi `use_amp=false`, nên ví dụ cũng tắt AMP để giữ thiết lập nhất quán. Nếu nhóm đã chốt giao thức AMP khác, dùng thống nhất trên cả ba seed và ghi vào nhật ký. Nếu nhóm chọn cấu hình khác, thay tham số đúng theo cấu hình đó. Ghi val accuracy tốt nhất của ba seed và tính mean ± std.
 
-## 4. Minh chứng, kết quả và báo cáo
-
-- Sau mỗi nhóm chạy, tải `results/runs/` và `results/figures/` về máy hoặc lưu vào Kaggle Output bằng **Save Version → Save & Run All**. Giữ URL/version notebook và chụp màn hình GPU, log epoch, kết quả cuối có thời gian.
-- Chỉ sau khi đã khóa mô hình và epoch theo validation, chấm PrivateTest đúng một lần cho từng mô hình cuối. Với E4 pretrained:
+Tự tổng hợp best epoch và mean ± độ lệch chuẩn mẫu bằng script:
 
 ```python
-!python src/evaluate_pretrained.py --run_dir results/runs/E4-resnet18_resnet18_s42 --csv_path "$CSV"
+!python src/summarize_tv4.py --run_dirs results/runs/E4-03_best_seed42_s42 results/runs/E4-03_best_seed43_s43 results/runs/E4-03_best_seed44_s44 --out results/summary_TV4_seeds.csv
 ```
 
-Thay run_dir bằng checkpoint cuối đã chọn. Lưu `private_test_metrics.json` và confusion matrix trong run đó.
-- Ghi nhật ký ngay: ExpID, người chạy, ngày giờ, thay đổi so với baseline, seed, best epoch, val accuracy/loss, test accuracy sau khi khóa, thời gian, đường dẫn artifact, nhận xét.
-- Khi viết báo cáo: giải thích ImageNet pretrained buộc ảnh xám thành 3 kênh, resize 96×96, chuẩn hóa ImageNet; so sánh ResNet18/VGG16 theo validation và nêu train/val gap. Ghi mean ± std cho ba seed. Nếu chênh lệch nhỏ, coi là nhiễu. Không chọn mô hình theo PrivateTest.
-- Đưa hình filter/feature map/activation maximization, bảng kết quả E4, nhận xét lớp nhầm nhiều, và kết luận vào phần TV4; ghép bìa, report, slide theo yêu cầu nhóm. Thay header tác giả trong các file TV4 bằng họ tên/MSSV thật trước khi nộp.
+## 4. Tạo hình filter cho checkpoint CNN cuối
 
-## 5. Hạn chế hiện tại cần biết
+Ví dụ với seed 42 (đường dẫn run cần khớp tên thực tế mà `train.py` in ra):
 
-`train_pretrained.py` lưu checkpoint tốt nhất theo val loss và không chạy PrivateTest. `evaluate_pretrained.py` dành riêng cho checkpoint pretrained. Các script CNN TV4 dùng API `build_model` / `get_last_conv` và định dạng checkpoint hiện có trong repo.
+```python
+!python src/visualize_filters.py --run_dir results/runs/E4-03_best_seed42_s42 --csv_path "$CSV"
+!python src/gradcam.py --run_dir results/runs/E4-03_best_seed42_s42 --csv_path "$CSV" --out results/figures/gradcam_final.png
+```
+
+`visualize_filters.py` sinh ba hình: kernel conv đầu, feature map lớp conv cuối với ví dụ các lớp cảm xúc, và activation maximization cho một số filter cuối. Grad-CAM là tùy chọn. Lưu các PNG trong report/slide.
+
+## 5. Đánh giá PrivateTest sau khi khóa mô hình
+
+Chỉ đánh giá sau khi cấu hình và epoch đã được chọn bằng validation. Với pretrained:
+
+```python
+!python src/evaluate_pretrained.py --run_dir /kaggle/working/results/runs/E4-resnet18_resnet18_s42 --csv_path "$CSV"
+```
+
+Thay `run_dir` bằng checkpoint pretrained cuối cần báo cáo. Với mô hình CNN nội bộ, nếu `evaluate.py` của TV3 chưa được thêm vào repo, dùng fallback TV4:
+
+```python
+!python src/evaluate_final_cnn.py --run_dir results/runs/E4-03_best_seed42_s42 --csv_path "$CSV"
+```
+
+Chỉ chạy với checkpoint cuối đã khóa và lưu kết quả; không dùng PrivateTest để đổi lựa chọn mô hình.
+
+## 6. Lưu minh chứng và hoàn thành báo cáo/slide
+
+- Sau khi chạy, dùng **Save Version → Save & Run All** và giữ URL/version Kaggle. Đảm bảo thư mục `/kaggle/working/results` được lưu trong output notebook; tải xuống hoặc lưu thành Kaggle Dataset nếu cần giữ lâu dài.
+- Chụp minh chứng có tên GPU, cell lệnh, log epoch, kết quả val cuối và thời gian; lưu dưới `Tuan11/evidence/ThanhVien4/`.
+- Ghi ngay nhật ký: ExpID, ngày giờ, người chạy, mục tiêu, thay đổi baseline, seed, best epoch, val loss/accuracy, test metrics (chỉ sau khi khóa), thời gian, đường dẫn run, nhận xét.
+- Hoàn thiện `docs/TV4_Report_Slide_Draft.md` bằng số liệu thật, hình thật, nhận xét train/val gap, lớp dễ nhầm, so sánh ResNet18/VGG16 và mean ± std của ba seed.
+- Commit/push code, nhật ký, report draft đã hoàn thiện, hình và đường dẫn Kaggle Version theo quy ước nhánh của nhóm. Không commit FER2013 CSV hoặc checkpoint lớn vào Git.

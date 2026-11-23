@@ -11,7 +11,7 @@ Bài tập lớn 02 môn **Học sâu** – Huấn luyện mạng CNN bằng PyT
 | **TV1 (Nhóm trưởng)** | Bùi Đức Trường – 3123411319 | Dữ liệu & pipeline, giữ repo, ghép code | `dataset.py`, `augment.py`, `eda.py`, `README.md` | **E3**: augmentation, class weight, chuẩn hóa |
 | **TV2** | *(Điền họ tên – MSSV)* | Mô hình & vòng lặp huấn luyện | `models.py`, `train.py`, `utils.py` | **E1**: kiến trúc CNN, activation, dropout, BatchNorm |
 | **TV3** | *(Điền họ tên – MSSV)* | Thực nghiệm hàng loạt, đánh giá & nhật ký | `config.py`, `run_experiments.py`, `evaluate.py`, `aggregate.py` | **E2**: optimizer, lr, scheduler, batch size, weight decay |
-| **TV4** | *(Điền họ tên – MSSV)* | Trực quan hóa filter, phân tích, ghép báo cáo/slide | `visualize_filters.py` (+ `gradcam.py`) | **E4**: pretrained fine-tune, đa seed cho mô hình tốt nhất |
+| **TV4** | Lê Thị Thanh Tuyền – 3123411332 | Trực quan hóa filter, phân tích, ghép báo cáo/slide | `visualize_filters.py`, `gradcam.py`, `train_pretrained.py`, `evaluate_pretrained.py`, `evaluate_final_cnn.py`, `summarize_tv4.py` | **E4**: pretrained fine-tune, đa seed cho mô hình tốt nhất |
 
 ---
 
@@ -29,12 +29,21 @@ Tuan11/
 │   ├── eda.py                  # TV1: Vẽ phân bố lớp, lưới ảnh mẫu, lưới augmentation
 │   ├── models.py               # TV2: FERCNN (small/medium/large), build_model, get_last_conv
 │   ├── train.py                # TV2: Vòng huấn luyện, checkpoint, EarlyStopping, log
+│   ├── train_pretrained.py     # TV4: E4 fine-tune ResNet18/VGG16 ImageNet
+│   ├── evaluate_pretrained.py  # TV4: đánh giá PrivateTest một lần sau khi khóa mô hình
+│   ├── evaluate_final_cnn.py   # TV4: fallback đánh giá CNN cuối nếu TV3 evaluator chưa có
+│   ├── visualize_filters.py    # TV4: kernel, feature map, activation maximization
+│   ├── gradcam.py              # TV4: Grad-CAM tùy chọn
+│   ├── summarize_tv4.py        # TV4: tổng hợp kết quả 3 seed, mean ± std
 │   └── utils.py                # TV2: set_seed, EarlyStopping, CSVLogger, plot_learning_curves
 ├── results/
 │   ├── figures/                # Hình EDA, learning curves, confusion matrix, filter
 │   └── runs/                   # Thư mục minh chứng từng run (<ExpID>_<ten>_s<seed>/)
 └── evidence/                   # Ảnh chụp màn hình minh chứng chạy theo từng thành viên
 ```
+
+Hướng dẫn chạy E4 và quy trình hoàn tất TV4 trên Kaggle: [`docs/TV4_Kaggle_Guide.md`](docs/TV4_Kaggle_Guide.md).  
+Khung nội dung report/slide và nhật ký TV4: [`docs/TV4_Report_Slide_Draft.md`](docs/TV4_Report_Slide_Draft.md), `results/experiment_log_TV4.csv`.
 
 ---
 
