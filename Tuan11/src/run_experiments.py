@@ -13,9 +13,8 @@ import os
 import time
 import traceback
 from dataclasses import replace
-from datetime import datetime
-
 from config import get_config, group_ids, run_dir_path
+from utils import local_now
 
 
 def is_done(run_dir):
@@ -30,7 +29,7 @@ def can_resume(run_dir):
 
 
 def now():
-    return datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %Z")
+    return local_now().strftime("%Y-%m-%d %H:%M:%S %Z")
 
 
 def main():

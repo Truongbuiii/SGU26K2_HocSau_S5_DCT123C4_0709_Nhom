@@ -1,6 +1,6 @@
 """Optional Grad-CAM for a saved in-repo FERCNN checkpoint.
 
-Author (TV4): [fill in name and student ID] | Role: visualizations and analysis
+Author: Lê Thị Thanh Tuyền – 3123411332 | TV4: visualizations and analysis | 24/11/2026
 """
 from __future__ import annotations
 
@@ -35,15 +35,22 @@ def main():
     model.eval()
     layer = get_last_conv(model)
     features, gradients = [], []
-    layer.register_forward_hook(lambda _m, _i, o: features.append(o))
-    layer.register_full_backward_hook(lambda _m, _gi, go: gradients.append(go[0]))
+    def save_activation(_module, _inputs, output):
+        features.append(output)
+        output.register_hook(lambda grad: gradients.append(grad))
+    handle = layer.register_forward_hook(save_activation)
     _, loader, _, _ = get_dataloaders(batch_size=args.count, aug_name="none", norm=cfg.get("norm", "div255"), csv_path=str(args.csv_path) if args.csv_path else None)
     x, y = next(iter(loader))
     x = x.to(device)
+    display_x = x.detach().clone()
+    if cfg.get("norm") == "meanstd":
+        normalize = next(t for t in loader.dataset.transform.transforms if hasattr(t, "mean") and hasattr(t, "std"))
+        display_x = (display_x * float(normalize.std[0]) + float(normalize.mean[0])).clamp(0, 1)
     logits = model(x)
     targets = logits.argmax(1)
     model.zero_grad(set_to_none=True)
     logits[torch.arange(len(x), device=device), targets].sum().backward()
+    handle.remove()
     feat, grad = features[-1].detach(), gradients[-1].detach()
     weights = grad.mean(dim=(2, 3), keepdim=True)
     cams = F.relu((weights * feat).sum(1, keepdim=True))
@@ -55,7 +62,7 @@ def main():
     for i, ax in enumerate(axes.flat):
         ax.axis("off")
         if i < len(x):
-            gray = x[i, 0].detach().cpu().numpy()
+            gray = display_x[i, 0].detach().cpu().numpy()
             heat = cams[i].cpu().numpy()
             ax.imshow(gray, cmap="gray")
             ax.imshow(heat, cmap="jet", alpha=0.42, vmin=0, vmax=1)

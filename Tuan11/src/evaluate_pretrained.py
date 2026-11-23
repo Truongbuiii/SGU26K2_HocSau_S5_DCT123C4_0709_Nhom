@@ -1,6 +1,6 @@
 """One-time PrivateTest evaluation for a locked E4 transfer-learning run.
 
-Author (TV4): [fill in name and student ID] | Role: E4 final evaluation
+Author: Lê Thị Thanh Tuyền – 3123411332 | TV4: E4 final evaluation | 24/11/2026
 """
 import argparse
 import json

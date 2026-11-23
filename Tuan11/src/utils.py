@@ -34,6 +34,13 @@ import numpy as np
 import torch
 import torch.nn as nn
 
+LOCAL_TIMEZONE = datetime.timezone(datetime.timedelta(hours=7), name="UTC+07")
+
+
+def local_now() -> datetime.datetime:
+    """Current wall time in the project's UTC+7 timezone, independent of host UTC."""
+    return datetime.datetime.now(LOCAL_TIMEZONE)
+
 
 def set_seed(seed: int = 42) -> None:
     """
@@ -267,7 +274,7 @@ def get_env_info(start_time: Optional[str] = None, end_time: Optional[str] = Non
     gpu_name = torch.cuda.get_device_name(0) if gpu_available else "CPU (No CUDA GPU)"
     gpu_count = torch.cuda.device_count() if gpu_available else 0
 
-    now_iso = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    now_iso = local_now().isoformat(timespec="seconds")
     return {
         "python_version": sys.version.split()[0],
         "platform": platform.platform(),

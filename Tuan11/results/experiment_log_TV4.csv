@@ -1,0 +1,6 @@
+ExpID,date_time,runner,purpose,change_vs_baseline,seed,best_epoch,val_loss,val_acc,test_acc,runtime_minutes,run_dir,status,notes
+E4-01,,,,ResNet18 ImageNet pretrained; resize 96; RGB replicate; ImageNet normalization,42,,,,,/kaggle/working/results/runs/E4-resnet18_resnet18_s42,NOT_RUN,
+E4-02,,,,VGG16 ImageNet pretrained; resize 96; RGB replicate; ImageNet normalization,42,,,,,/kaggle/working/results/runs/E4-vgg16_vgg16_s42,NOT_RUN,
+E4-03,,,,Final selected model; same config across seeds,42,,,,,,NOT_RUN,
+E4-03,,,,Final selected model; same config across seeds,43,,,,,,NOT_RUN,
+E4-03,,,,Final selected model; same config across seeds,44,,,,,,NOT_RUN,

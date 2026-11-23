@@ -11,12 +11,11 @@ import argparse
 import glob
 import json
 import os
-from datetime import datetime
-
 import numpy as np
 import pandas as pd
 
 from config import BASELINE, BASELINE_IDS, cfg_from_dict, diff_from_baseline
+from utils import local_now
 
 REQUIRED = ["config.json", "env.json", "train.log", "history.csv", "best.pt",
             "test_metrics.json", "confusion_matrix.png"]
@@ -170,7 +169,7 @@ def append_log(run_dir, log_path="results/experiment_log.xlsx", comment=""):
     r = r[0]
     cfg = cfg_from_dict(_read_json(os.path.join(run_dir, "config.json")))
     row = {
-        "ExpID": cfg.exp_id, "Ngay gio": datetime.now().astimezone().strftime("%Y-%m-%d %H:%M %Z"),
+        "ExpID": cfg.exp_id, "Ngay gio": local_now().strftime("%Y-%m-%d %H:%M %Z"),
         "Nguoi chay": cfg.runner, "Muc dich": cfg.note, "Thay doi so voi baseline": r["change"],
         "Seed": cfg.seed, "Epoch tot nhat": r["best_epoch"], "Val acc (%)": round(r["val_acc"], 2),
         "Test acc (%)": round(r["test_acc"], 2) if r["test_acc"] == r["test_acc"] else "",

@@ -1,6 +1,6 @@
 """TV4 visualizations for FER2013 CNN checkpoints.
 
-Author (TV4): [fill in name and student ID] | Role: visualizations and analysis
+Author: Lê Thị Thanh Tuyền – 3123411332 | TV4: visualizations and analysis | 24/11/2026
 
 Usage from Tuan11/: python src/visualize_filters.py --run_dir results/runs/E3-06_meanstd_s42
 Writes first-layer kernels, last-convolution feature maps, and activation-maximization
@@ -54,7 +54,7 @@ def plot_first_kernels(model, out: Path, count: int = 32):
     plt.close(fig)
 
 
-def plot_feature_maps(model, images, labels, out: Path, maps_per_image: int = 16):
+def plot_feature_maps(model, images, labels, out: Path, display_images=None, maps_per_image: int = 16):
     layer = get_last_conv(model)
     captured = []
     hook = layer.register_forward_hook(lambda _m, _i, o: captured.append(o.detach().cpu()))
@@ -65,7 +65,8 @@ def plot_feature_maps(model, images, labels, out: Path, maps_per_image: int = 16
     n, cols = len(images), 4
     fig, axes = plt.subplots(n, cols + 1, figsize=(13, 3.1 * n), squeeze=False)
     for row in range(n):
-        axes[row, 0].imshow(images[row, 0].cpu(), cmap="gray")
+        shown = display_images if display_images is not None else images
+        axes[row, 0].imshow(shown[row, 0].cpu(), cmap="gray")
         axes[row, 0].set_title(CLASS_NAMES[int(labels[row])])
         axes[row, 0].axis("off")
         # Average activation groups keep the 256-channel final layer readable.
@@ -80,27 +81,27 @@ def plot_feature_maps(model, images, labels, out: Path, maps_per_image: int = 16
     plt.close(fig)
 
 
-def activation_maximization(model, out: Path, channels=(0, 16, 64, 128), steps=160, lr=0.08):
+def activation_maximization(model, out: Path, channels=(0, 16, 64, 128), steps=160, lr=0.08, mean=0.0, std=1.0):
     """Gradient-ascent input patterns for selected last-layer channels."""
     layer = get_last_conv(model)
     captured = []
     handle = layer.register_forward_hook(lambda _m, _i, o: captured.append(o))
     rows = []
     for channel in channels:
-        x = torch.rand(1, 1, 48, 48, device=next(model.parameters()).device, requires_grad=True)
-        opt = torch.optim.Adam([x], lr=lr)
+        raw = torch.rand(1, 1, 48, 48, device=next(model.parameters()).device, requires_grad=True)
+        opt = torch.optim.Adam([raw], lr=lr)
         for _ in range(steps):
             captured.clear()
             opt.zero_grad(set_to_none=True)
-            model(x)
+            model((raw - mean) / std)
             # Encourage smooth, bounded patterns while maximizing channel response.
-            tv = (x[:, :, 1:] - x[:, :, :-1]).abs().mean() + (x[:, :, :, 1:] - x[:, :, :, :-1]).abs().mean()
-            loss = -captured[-1][:, channel].mean() + 0.02 * tv + 0.001 * (x - 0.5).square().mean()
+            tv = (raw[:, :, 1:] - raw[:, :, :-1]).abs().mean() + (raw[:, :, :, 1:] - raw[:, :, :, :-1]).abs().mean()
+            loss = -captured[-1][:, channel].mean() + 0.02 * tv + 0.001 * (raw - 0.5).square().mean()
             loss.backward()
             opt.step()
             with torch.no_grad():
-                x.clamp_(0, 1)
-        rows.append(x.detach().cpu()[0, 0].numpy())
+                raw.clamp_(0, 1)
+        rows.append(raw.detach().cpu()[0, 0].numpy())
     handle.remove()
     fig, axes = plt.subplots(1, len(rows), figsize=(3 * len(rows), 3))
     for ax, image, channel in zip(np.asarray(axes).reshape(-1), rows, channels):
@@ -125,6 +126,10 @@ def main():
     tag = args.run_dir.name
     plot_first_kernels(model, args.out_dir / f"{tag}_first_kernels.png")
     _, valid_loader, _, _ = get_dataloaders(batch_size=64, aug_name="none", norm=cfg.get("norm", "div255"), csv_path=str(args.csv_path) if args.csv_path else None)
+    mean, std = 0.0, 1.0
+    if cfg.get("norm") == "meanstd":
+        normalize = next(t for t in valid_loader.dataset.transform.transforms if hasattr(t, "mean") and hasattr(t, "std"))
+        mean, std = float(normalize.mean[0]), float(normalize.std[0])
     selected, labels, seen = [], [], set()
     for x, y in valid_loader:
         for image, label in zip(x, y):
@@ -138,8 +143,9 @@ def main():
         if len(seen) == len(CLASS_NAMES):
             break
     images = torch.stack(selected).to(device)
-    plot_feature_maps(model, images, labels, args.out_dir / f"{tag}_last_feature_maps.png")
-    activation_maximization(model, args.out_dir / f"{tag}_activation_maximization.png")
+    display_images = (images * std + mean).clamp(0, 1)
+    plot_feature_maps(model, images, labels, args.out_dir / f"{tag}_last_feature_maps.png", display_images=display_images)
+    activation_maximization(model, args.out_dir / f"{tag}_activation_maximization.png", mean=mean, std=std)
     print(f"Saved visualizations to {args.out_dir.resolve()}")
 
 

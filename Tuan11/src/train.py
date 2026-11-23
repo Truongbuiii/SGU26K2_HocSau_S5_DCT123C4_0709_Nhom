@@ -27,7 +27,6 @@ from __future__ import annotations
 
 import argparse
 import dataclasses
-import datetime
 import json
 import sys
 import time
@@ -53,6 +52,7 @@ from utils import (  # noqa: E402
     count_parameters,
     get_env_info,
     get_git_commit_hash,
+    local_now,
     plot_learning_curves,
     set_seed,
 )
@@ -339,7 +339,7 @@ def train(
     can_resume = bool(cfg_dict.get("resume", True) and last_ckpt_path.exists())
     logger = DualLogger(log_path, append=can_resume)
 
-    start_iso = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    start_iso = local_now().isoformat(timespec="seconds")
     env_info = get_env_info(start_time=start_iso)
     with open(env_path, mode="w", encoding="utf-8") as f:
         json.dump(env_info, f, indent=2, ensure_ascii=False)
@@ -527,7 +527,7 @@ def train(
 
     finally:
         # Cập nhật end_time vào env.json
-        end_iso = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+        end_iso = local_now().isoformat(timespec="seconds")
         env_info["end_time"] = end_iso
         with open(env_path, mode="w", encoding="utf-8") as f:
             json.dump(env_info, f, indent=2, ensure_ascii=False)
