@@ -19,6 +19,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision.models import resnet18, ResNet18_Weights, vgg16, VGG16_Weights
+from utils import local_now
 
 try:
     from dataset import get_dataloaders
@@ -93,6 +94,7 @@ def main():
     (run_dir / "config.json").write_text(json.dumps(cfg, indent=2, default=str), encoding="utf-8")
     best, stale, rows = float("inf"), 0, []
     started = time.time()
+    start_iso = local_now().isoformat(timespec="seconds")
     for ep in range(1, args.epochs + 1):
         t = time.time()
         tr_loss, tr_acc = epoch(model, train_loader, optimizer, device, scaler)
@@ -108,7 +110,7 @@ def main():
         else:
             stale += 1
             if stale >= args.patience: break
-    (run_dir / "env.json").write_text(json.dumps({"torch": torch.__version__, "device": str(device), "gpu": torch.cuda.get_device_name(0) if device.type == "cuda" else None, "seconds": time.time()-started}, indent=2), encoding="utf-8")
+    (run_dir / "env.json").write_text(json.dumps({"torch": torch.__version__, "device": str(device), "gpu": torch.cuda.get_device_name(0) if device.type == "cuda" else None, "start_time": start_iso, "end_time": local_now().isoformat(timespec="seconds"), "seconds": time.time()-started}, indent=2), encoding="utf-8")
     print(f"Saved run to {run_dir}", flush=True)
 
 

@@ -44,6 +44,7 @@ Tuan11/
 
 Hướng dẫn chạy E4 và quy trình hoàn tất TV4 trên Kaggle: [`docs/TV4_Kaggle_Guide.md`](docs/TV4_Kaggle_Guide.md).  
 Khung nội dung report/slide và nhật ký TV4: [`docs/TV4_Report_Slide_Draft.md`](docs/TV4_Report_Slide_Draft.md), `results/experiment_log_TV4.csv`.
+Timestamp run mới trong `env.json` và nhật ký được ghi theo múi giờ UTC+7 để đồng nhất ngày chạy Kaggle với giờ Việt Nam/Thái Lan.
 
 ---
 

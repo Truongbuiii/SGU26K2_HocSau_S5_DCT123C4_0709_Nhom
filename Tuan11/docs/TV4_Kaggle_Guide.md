@@ -3,6 +3,8 @@
 **Người phụ trách:** Lê Thị Thanh Tuyền – 3123411332.
 **Ngày cập nhật hướng dẫn:** 24/11/2026.
 
+Các timestamp do code mới ghi vào `env.json` và nhật ký sẽ theo múi giờ UTC+7 (giờ Việt Nam/Thái Lan), không theo đồng hồ UTC của máy Kaggle.
+
 Theo phân công, TV4 phụ trách trực quan hóa filter, E4 pretrained, chạy mô hình tốt nhất với nhiều seed, phân tích, report và slide. Code đã có trong `src/`; hướng dẫn này chỉ rõ những phần phải chạy để tạo kết quả thật.
 
 ## Trạng thái repo hiện tại
