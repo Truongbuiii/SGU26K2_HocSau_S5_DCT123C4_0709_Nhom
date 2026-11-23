@@ -10,10 +10,11 @@ Checkpoint CNN được trực quan hóa là **E4-03, seed 42**, cấu hình Med
 
 Các hình trong minh chứng Kaggle:
 
-- `results/figures/E4-03_best_seed42_s42_first_kernels.png`
-- `results/figures/E4-03_best_seed42_s42_last_feature_maps.png`
-- `results/figures/E4-03_best_seed42_s42_activation_maximization.png`
-- Tùy chọn: `results/figures/gradcam_final.png`
+- `results/figures/E4-03_first_layer_kernels_kaggle_capture.png`
+- `results/figures/E4-03_last_feature_maps_kaggle_capture.png`
+- `results/figures/E4-03_activation_maximization_kaggle_capture.png`
+- `results/figures/E4-03_gradcam_kaggle_capture.png`
+- Learning curves: `results/figures/E4-03_learning_curves_3seeds_kaggle_capture.png` và `results/figures/E4_pretrained_learning_curves_kaggle_capture.png`
 
 **Nhận xét:** feature maps cho thấy vùng mắt, mũi và miệng có đáp ứng rõ; Grad-CAM tập trung nhiều vào vùng mặt, đặc biệt quanh mắt/miệng. Các hình là ví dụ định tính; chúng không chứng minh mạng luôn dùng đúng vùng trên mọi ảnh.
 
@@ -58,4 +59,4 @@ Theo kết quả E1–E3 của nhóm, E2-04 được dùng làm cấu hình E4-0
 
 ## Nguồn số liệu và minh chứng
 
-Số liệu trên được chép từ notebook Kaggle và 23 ảnh trong `evidence/ThanhVien4/MinhChung_TV4_Kaggle_2026-11-24.docx`. Dòng thời gian gốc trong notebook hiện ảnh có thể dùng UTC ngày 23; ngày chạy địa phương là 24/11/2026 UTC+7. Hãy dùng timestamp trong các `env.json` gốc nếu cần ghi chính xác giờ bắt đầu/kết thúc từng run.
+Số liệu trên được chép từ notebook Kaggle và 23 ảnh trong `evidence/ThanhVien4/MinhChung_TV4_Kaggle_2026-11-24.docx`. Các file hình đặt trong `results/figures/` là ảnh cắt từ output notebook để dễ xem trong repo; hãy thay bằng PNG gốc Kaggle nếu tải được artifacts. Dòng thời gian gốc trong notebook hiện ảnh có thể dùng UTC ngày 23; ngày chạy địa phương là 24/11/2026 UTC+7. Hãy dùng timestamp trong các `env.json` gốc nếu cần ghi chính xác giờ bắt đầu/kết thúc từng run.
