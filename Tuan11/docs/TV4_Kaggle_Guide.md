@@ -1,6 +1,7 @@
 # Hướng dẫn hoàn tất TV4 trên Kaggle
 
 **Người phụ trách:** Lê Thị Thanh Tuyền – 3123411332.
+**Ngày cập nhật hướng dẫn:** 24/11/2026.
 
 Theo phân công, TV4 phụ trách trực quan hóa filter, E4 pretrained, chạy mô hình tốt nhất với nhiều seed, phân tích, report và slide. Code đã có trong `src/`; hướng dẫn này chỉ rõ những phần phải chạy để tạo kết quả thật.
 

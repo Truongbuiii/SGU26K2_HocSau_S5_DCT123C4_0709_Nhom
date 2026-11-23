@@ -1,6 +1,7 @@
 # Phần TV4 – Trực quan hóa, E4 và phân tích
 
 **Thành viên phụ trách:** Lê Thị Thanh Tuyền – 3123411332  
+**Ngày cập nhật bản khung:** 24/11/2026  
 **Trạng thái:** Bản khung; hoàn tất các ô `[điền sau khi chạy Kaggle]` bằng số liệu và hình thực tế. Không điền kết quả dự đoán trước.
 
 ## Nội dung báo cáo
