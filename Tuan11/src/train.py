@@ -370,7 +370,8 @@ def train(
         weight_tensor: Optional[torch.Tensor] = None
         if cfg_dict.get("use_class_weight", False) and class_weights is not None:
             weight_tensor = class_weights.to(device, dtype=torch.float32)
-        criterion = nn.CrossEntropyLoss(weight=weight_tensor)
+        train_criterion = nn.CrossEntropyLoss(weight=weight_tensor)
+        val_criterion = nn.CrossEntropyLoss()  # Validation luôn không trọng số để so sánh công bằng giữa các run
 
         optimizer = build_optimizer(model, cfg_dict)
         scheduler = build_scheduler(optimizer, cfg_dict)
@@ -426,7 +427,7 @@ def train(
             train_loss, train_acc = train_one_epoch(
                 model=model,
                 loader=train_loader,
-                criterion=criterion,
+                criterion=train_criterion,
                 optimizer=optimizer,
                 device=device,
                 use_amp=use_amp,
@@ -435,7 +436,7 @@ def train(
             val_loss, val_acc = validate_one_epoch(
                 model=model,
                 loader=valid_loader,
-                criterion=criterion,
+                criterion=val_criterion,
                 device=device,
                 use_amp=use_amp,
             )
