@@ -1,7 +1,7 @@
 {
   "exp_id": "E1-02",
   "exp_name": "baseline_medium",
-  "runner": "TV3",
+  "runner": "TV2",
   "arch": "medium",
   "activation": "relu",
   "use_bn": false,

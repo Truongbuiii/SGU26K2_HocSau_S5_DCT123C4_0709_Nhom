@@ -1,6 +1,6 @@
 ﻿exp_id,name,seed,runner,change,n_params,epochs_run,best_epoch,train_acc,val_acc,val_loss,test_acc,gap_train_val,minutes,run_dir,d_val_acc,d_test_acc,trong_nhieu
 E1-01,small,42,TV2,arch=small,38901191,76,66,61.852,64.029,0.992,64.837,-2.177,36.276,results/runs\E1-01_small_s42,2.703,2.563,khong
-E1-02,baseline_medium,42,TV3,(baseline),11327303,43,33,59.229,61.326,1.024,62.274,-2.097,14.089,results/runs\E1-02_baseline_medium_s42,,,
+E1-02,baseline_medium,42,TV2,(baseline),11327303,43,33,59.229,61.326,1.024,62.274,-2.097,14.089,results/runs\E1-02_baseline_medium_s42,,,
 E1-03,large,42,TV2,arch=large,20406599,22,12,25.132,24.937,1.81,24.492,0.194,14.69,results/runs\E1-03_large_s42,-36.389,-37.782,khong
 E1-04,medium_bn,42,TV2,use_bn=True,11328583,55,45,69.268,66.481,0.917,67.595,2.787,20.076,results/runs\E1-04_medium_bn_s42,5.155,5.322,khong
 E1-05a,leaky_relu,42,TV2,activation=leaky_relu,11327303,34,24,58.825,60.741,1.046,62.301,-1.916,11.869,results/runs\E1-05a_leaky_relu_s42,-0.585,0.028,co
