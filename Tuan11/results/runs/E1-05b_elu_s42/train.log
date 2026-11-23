@@ -1,0 +1,29 @@
+==============================================================================
+Run: E1-05b | Name: elu | Seed: 42 | Runner: TV2
+Arch: medium | Act: elu | BN: False | ConvDrop: 0.2 | Params: 11,327,303
+Optimizer: adam (lr=0.001, wd=0.0) | Scheduler: none | Batch: 64 | Device: cuda (Tesla T4)
+==============================================================================
+Epoch 001/100 | train_loss: 4.2144 | train_acc: 0.1856 | val_loss: 1.8922 | val_acc: 0.2494 | lr: 1.00e-03 | time: 20.06s  [*BEST*]
+Epoch 002/100 | train_loss: 2.1692 | train_acc: 0.1900 | val_loss: 1.8469 | val_acc: 0.2494 | lr: 1.00e-03 | time: 20.35s  [*BEST*]
+Epoch 003/100 | train_loss: 2.0325 | train_acc: 0.1901 | val_loss: 1.8508 | val_acc: 0.2494 | lr: 1.00e-03 | time: 20.01s
+Epoch 004/100 | train_loss: 1.9541 | train_acc: 0.1969 | val_loss: 1.8470 | val_acc: 0.1691 | lr: 1.00e-03 | time: 19.52s
+Epoch 005/100 | train_loss: 1.9177 | train_acc: 0.2032 | val_loss: 1.8460 | val_acc: 0.1691 | lr: 1.00e-03 | time: 19.37s  [*BEST*]
+Epoch 006/100 | train_loss: 1.8940 | train_acc: 0.2105 | val_loss: 1.8406 | val_acc: 0.1691 | lr: 1.00e-03 | time: 19.50s  [*BEST*]
+Epoch 007/100 | train_loss: 1.8924 | train_acc: 0.2075 | val_loss: 1.8304 | val_acc: 0.2494 | lr: 1.00e-03 | time: 19.50s  [*BEST*]
+Epoch 008/100 | train_loss: 1.8937 | train_acc: 0.2066 | val_loss: 1.8386 | val_acc: 0.1691 | lr: 1.00e-03 | time: 19.48s
+Epoch 009/100 | train_loss: 1.8962 | train_acc: 0.2036 | val_loss: 1.8257 | val_acc: 0.1819 | lr: 1.00e-03 | time: 19.52s  [*BEST*]
+Epoch 010/100 | train_loss: 1.9055 | train_acc: 0.2050 | val_loss: 1.8591 | val_acc: 0.1691 | lr: 1.00e-03 | time: 20.03s
+Epoch 011/100 | train_loss: 1.8940 | train_acc: 0.2091 | val_loss: 1.8403 | val_acc: 0.1482 | lr: 1.00e-03 | time: 20.12s
+Epoch 012/100 | train_loss: 4.8211 | train_acc: 0.2005 | val_loss: 1.8498 | val_acc: 0.2494 | lr: 1.00e-03 | time: 19.58s
+Epoch 013/100 | train_loss: 1.9665 | train_acc: 0.1985 | val_loss: 1.8263 | val_acc: 0.1819 | lr: 1.00e-03 | time: 19.22s
+Epoch 014/100 | train_loss: 1.9018 | train_acc: 0.2042 | val_loss: 1.9218 | val_acc: 0.1156 | lr: 1.00e-03 | time: 19.23s
+Epoch 015/100 | train_loss: 2.3543 | train_acc: 0.2052 | val_loss: 1.8461 | val_acc: 0.2494 | lr: 1.00e-03 | time: 19.25s
+Epoch 016/100 | train_loss: 1.8978 | train_acc: 0.2101 | val_loss: 1.8591 | val_acc: 0.2494 | lr: 1.00e-03 | time: 19.24s
+Epoch 017/100 | train_loss: 1.9029 | train_acc: 0.2069 | val_loss: 1.8269 | val_acc: 0.2494 | lr: 1.00e-03 | time: 19.22s
+Epoch 018/100 | train_loss: 1.8955 | train_acc: 0.2082 | val_loss: 1.8404 | val_acc: 0.1691 | lr: 1.00e-03 | time: 19.23s
+Epoch 019/100 | train_loss: 1.8978 | train_acc: 0.2048 | val_loss: 1.8449 | val_acc: 0.1691 | lr: 1.00e-03 | time: 19.25s
+[EarlyStopping] Dừng sớm tại epoch 19 (không cải thiện val_loss sau 10 epoch). Best epoch: 9 (best_val_loss=1.8257, val_acc=0.1819).
+------------------------------------------------------------------------------
+[FINISHED] Hoàn tất run tại: results/runs/E1-05b_elu_s42
+           Best Epoch: 9 | Best Val Loss: 1.8257 | Val Acc tại Best Epoch: 0.1819 | Tổng thời gian: 375.12s
+           Đã lưu biểu đồ đường cong huấn luyện: results/runs/E1-05b_elu_s42/learning_curves.png

@@ -1,0 +1,266 @@
+{
+  "run_dir": "results/runs/E1-05c_sigmoid_s42",
+  "class_names": [
+    "Angry",
+    "Disgust",
+    "Fear",
+    "Happy",
+    "Sad",
+    "Surprise",
+    "Neutral"
+  ],
+  "val_acc": 24.93730844246308,
+  "test_acc": 24.49150181108944,
+  "val_macro_f1": 5.702816362941251,
+  "test_macro_f1": 5.620923391738073,
+  "per_class": {
+    "Angry": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 491
+    },
+    "Disgust": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 55
+    },
+    "Fear": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 528
+    },
+    "Happy": {
+      "precision": 24.49150181108944,
+      "recall": 100.0,
+      "f1": 39.34646374216651,
+      "support": 879
+    },
+    "Sad": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 594
+    },
+    "Surprise": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 416
+    },
+    "Neutral": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 626
+    }
+  },
+  "top_confusions": [
+    {
+      "true": "Angry",
+      "pred": "Happy",
+      "pct": 100.0
+    },
+    {
+      "true": "Disgust",
+      "pred": "Happy",
+      "pct": 100.0
+    },
+    {
+      "true": "Fear",
+      "pred": "Happy",
+      "pct": 100.0
+    },
+    {
+      "true": "Sad",
+      "pred": "Happy",
+      "pct": 100.0
+    },
+    {
+      "true": "Surprise",
+      "pred": "Happy",
+      "pct": 100.0
+    },
+    {
+      "true": "Neutral",
+      "pred": "Happy",
+      "pct": 100.0
+    }
+  ],
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      491,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      55,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      528,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      879,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      594,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      416,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      626,
+      0,
+      0,
+      0
+    ]
+  ],
+  "confusion_matrix_pct": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "val_per_class": {
+    "Angry": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 467
+    },
+    "Disgust": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 56
+    },
+    "Fear": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 496
+    },
+    "Happy": {
+      "precision": 24.93730844246308,
+      "recall": 100.0,
+      "f1": 39.91971454058876,
+      "support": 895
+    },
+    "Sad": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 653
+    },
+    "Surprise": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 415
+    },
+    "Neutral": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 607
+    }
+  }
+}

@@ -2,6 +2,7 @@
 =============================================================================
 BTL02 - CNN nhận diện cảm xúc khuôn mặt (FER2013) - PyTorch
 File: src/train.py
+Tác giả (TV2): Nguyễn Thị Ánh Trâm - MSSV: 3123411306
 Vai trò: Thành viên 2 - Mô hình và vòng huấn luyện (Models, Train, Utils)
 Ngày tạo: 18/11/2026
 Mô tả: Vòng lặp huấn luyện chính `train(cfg) -> run_dir` theo đúng chuẩn Mục 3.2 & Mục 4:

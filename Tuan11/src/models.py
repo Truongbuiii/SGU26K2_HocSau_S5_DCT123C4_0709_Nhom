@@ -2,7 +2,7 @@
 =============================================================================
 BTL02 - CNN nhận diện cảm xúc khuôn mặt (FER2013) - PyTorch
 File: src/models.py
-Tác giả (TV2): [HỌ TÊN CỦA BẠN] - MSSV: [MSSV CỦA BẠN]
+Tác giả (TV2): Nguyễn Thị Ánh Trâm - MSSV: 3123411306
 Vai trò: Thành viên 2 - Mô hình và vòng huấn luyện (Models, Train, Utils)
 Ngày tạo: 18/11/2026
 Mô tả: Định nghĩa kiến trúc mạng CNN nhận diện cảm xúc khuôn mặt (48x48x1 -> 7 lớp)
