@@ -2,7 +2,7 @@
 
 **Thành viên phụ trách:** Lê Thị Thanh Tuyền – 3123411332  
 **Ngày chạy theo minh chứng:** 24/11/2026 (UTC+7)  
-**Trạng thái:** Đã điền kết quả đọc từ minh chứng Kaggle. Bổ sung các ảnh PNG gốc nếu tải được từ Kaggle Output; bản DOCX minh chứng và ảnh chụp màn hình đã lưu dưới `evidence/ThanhVien4/`.
+**Trạng thái:** Đã điền kết quả đọc từ minh chứng Kaggle. Đã tải các ảnh PNG gốc từ Kaggle Output; bản DOCX minh chứng và ảnh chụp màn hình đã lưu dưới `evidence/ThanhVien4/`.
 
 ## 1. Trực quan hóa filter và biểu diễn học được
 
@@ -10,11 +10,11 @@ Checkpoint CNN được trực quan hóa là **E4-03, seed 42**, cấu hình Med
 
 Các hình trong minh chứng Kaggle:
 
-- `results/figures/E4-03_first_layer_kernels_kaggle_capture.png`
-- `results/figures/E4-03_last_feature_maps_kaggle_capture.png`
-- `results/figures/E4-03_activation_maximization_kaggle_capture.png`
-- `results/figures/E4-03_gradcam_kaggle_capture.png`
-- Learning curves: `results/figures/E4-03_learning_curves_3seeds_kaggle_capture.png` và `results/figures/E4_pretrained_learning_curves_kaggle_capture.png`
+- `results/figures/E4-03_best_seed42_s42_first_kernels.png`
+- `results/figures/E4-03_best_seed42_s42_last_feature_maps.png`
+- `results/figures/E4-03_best_seed42_s42_activation_maximization.png`
+- `results/figures/gradcam_final.png`
+- Learning curves: `results/figures/E4-03_learning_curves_3seeds.png` và `results/figures/E4_pretrained_learning_curves.png`
 
 **Nhận xét:** feature maps cho thấy vùng mắt, mũi và miệng có đáp ứng rõ; Grad-CAM tập trung nhiều vào vùng mặt, đặc biệt quanh mắt/miệng. Các hình là ví dụ định tính; chúng không chứng minh mạng luôn dùng đúng vùng trên mọi ảnh.
 
@@ -24,10 +24,10 @@ FER2013 ảnh xám 48×48 được nhân bản thành ba kênh, resize lên 96×
 
 | Run | Mô hình | Seed | Best epoch | Val loss | Val accuracy | PrivateTest accuracy | Thời gian |
 |---|---|---:|---:|---:|---:|---:|---:|
-| E4-01 | ResNet18 pretrained | 42 | 7 | 0.9412 | 65.90% | 67.43% | 190.98 s |
-| E4-02 | VGG16 pretrained | 42 | 11 | 0.9241 | 68.32% | 69.27% | 1339.24 s |
+| E4-01 | ResNet18 pretrained | 42 | 7 | 0.9412 | 65.90% | 67.43% | 187.27 s |
+| E4-02 | VGG16 pretrained | 42 | 11 | 0.9233 | 68.26% | 68.46% | 1317.59 s |
 
-Trong hai cấu hình pretrained đã chạy, VGG16 cao hơn ResNet18 **2.42 điểm phần trăm trên validation**. VGG16 cần thời gian lâu hơn (khoảng 22.3 phút so với 3.2 phút). Learning curves cho thấy train accuracy tiếp tục tăng sau khi validation chững lại, rõ hơn ở VGG16; early stopping theo validation vì vậy hữu ích. PrivateTest được báo cáo sau khi khóa lựa chọn, không dùng để chọn cấu hình.
+Trong hai cấu hình pretrained đã chạy, VGG16 cao hơn ResNet18 **2.37 điểm phần trăm trên validation**. VGG16 cần thời gian lâu hơn (khoảng 22.0 phút so với 3.1 phút). Learning curves cho thấy train accuracy tiếp tục tăng sau khi validation chững lại, rõ hơn ở VGG16; early stopping theo validation vì vậy hữu ích. PrivateTest được báo cáo sau khi khóa lựa chọn, không dùng để chọn cấu hình.
 
 ## 3. Cấu hình CNN tốt nhất qua ba seed
 
@@ -44,7 +44,7 @@ Theo kết quả E1–E3 của nhóm, E2-04 được dùng làm cấu hình E4-0
 
 ## 4. Phân tích và kết luận TV4
 
-- **Transfer learning:** VGG16 là cấu hình cao nhất trong hai run pretrained theo validation (68.32%). Kết quả này cao hơn ResNet18 (65.90%) và E4-03 CNN trung bình (66.56%). Đổi lại, VGG16 tốn thời gian fine-tune nhiều hơn và có khoảng cách train/validation rõ hơn.
+- **Transfer learning:** VGG16 là cấu hình cao nhất trong hai run pretrained theo validation (68.26%). Kết quả này cao hơn ResNet18 (65.90%) và E4-03 CNN trung bình (66.56%). Đổi lại, VGG16 tốn thời gian fine-tune nhiều hơn và có khoảng cách train/validation rõ hơn.
 - **Độ ổn định:** E4-03 ba seed đạt 66.56 ± 0.23% validation; test trung bình 67.60 ± 0.37%. Chênh lệch nhỏ giữa các seed cần được diễn giải thận trọng.
 - **Lỗi theo lớp:** confusion matrix và per-class report cho thấy lớp Disgust có support thấp (55 ảnh trong PrivateTest), nên recall biến động mạnh; các nhầm lẫn giữa Fear/Sad/Neutral cũng đáng chú ý. Dùng confusion matrix/per-class metrics trong `screenshots/14_PrivateTest_CNN.png` để trích số chính xác khi viết bản báo cáo cuối.
 - **Fail case:** E2-03 (Adam `lr=1e-2`) trong summary nhóm đạt 24.937% validation; có thể dùng làm kết quả không đạt mong đợi nếu TV3 xác nhận bảng tổng hợp.
@@ -59,4 +59,4 @@ Theo kết quả E1–E3 của nhóm, E2-04 được dùng làm cấu hình E4-0
 
 ## Nguồn số liệu và minh chứng
 
-Số liệu trên được chép từ notebook Kaggle và 23 ảnh trong `evidence/ThanhVien4/MinhChung_TV4_Kaggle_2026-11-24.docx`. Các file hình đặt trong `results/figures/` là ảnh cắt từ output notebook để dễ xem trong repo; hãy thay bằng PNG gốc Kaggle nếu tải được artifacts. Dòng thời gian gốc trong notebook hiện ảnh có thể dùng UTC ngày 23; ngày chạy địa phương là 24/11/2026 UTC+7. Hãy dùng timestamp trong các `env.json` gốc nếu cần ghi chính xác giờ bắt đầu/kết thúc từng run.
+Số liệu trên được chép từ notebook Kaggle và 23 ảnh trong `evidence/ThanhVien4/MinhChung_TV4_Kaggle_2026-11-24.docx`. Các file hình đặt trong `results/figures/` là PNG gốc tải từ Kaggle Output. Notebook saved as `notebooks/TV4_Kaggle_Executed_2026-11-24.ipynb`; timestamps are recorded per run in `env.json` (UTC+7). Original Kaggle PNGs, logs, and metrics are committed. Large `.pt` checkpoints are excluded.

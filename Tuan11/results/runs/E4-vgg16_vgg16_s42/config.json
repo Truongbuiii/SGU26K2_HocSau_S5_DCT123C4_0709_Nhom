@@ -1,0 +1,17 @@
+{
+  "arch": "vgg16",
+  "seed": 42,
+  "epochs": 30,
+  "patience": 7,
+  "batch_size": 64,
+  "lr": 0.0001,
+  "csv_path": "/kaggle/input/datasets/deadskull7/fer2013/fer2013.csv",
+  "output_root": "/kaggle/working/results/runs",
+  "no_amp": false,
+  "device": "cuda",
+  "pretrained": true,
+  "input_size": 96,
+  "channels": 3,
+  "norm": "ImageNet",
+  "amp": true
+}
