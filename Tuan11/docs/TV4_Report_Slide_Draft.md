@@ -31,7 +31,7 @@ Trong hai cấu hình pretrained đã chạy, VGG16 cao hơn ResNet18 **2.42 đi
 
 ## 3. Cấu hình CNN tốt nhất qua ba seed
 
-Theo kết quả E1–E3 của nhóm, E2-04 được dùng làm cấu hình E4-03: Medium, ReLU, không BatchNorm, conv dropout 0.2, FC dropout 0.5, `flip_affine`, `div255`, Adam `lr=1e-4`, batch 64, tối đa 100 epoch, patience 10. AMP tắt, đồng nhất với config các run hiện có.
+Theo kết quả E1–E3 của nhóm, E2-04 được dùng làm cấu hình E4-03: Medium, ReLU, không BatchNorm, conv dropout 0.2, FC dropout 0.5, `flip_affine`, `div255`, Adam `lr=1e-4`, batch 64, tối đa 100 epoch, patience 10. AMP tắt, đồng nhất với config các run hiện có. Tại thời điểm khóa cấu hình cho E4-03, E2-04 (val 66.40%) là cấu hình dẫn đầu từ kết quả E2/E3; khi E1 hoàn tất sau đó, E1-04 (Medium + BatchNorm) đạt 66.48% val (chênh lệch +0.08 điểm phần trăm, nằm trong biên độ nhiễu thống kê ±1.5%).
 
 | Seed | Best epoch | Val loss | Val accuracy | PrivateTest accuracy |
 |---:|---:|---:|---:|---:|
