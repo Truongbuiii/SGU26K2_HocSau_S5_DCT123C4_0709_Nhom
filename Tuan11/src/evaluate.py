@@ -1,4 +1,5 @@
 """
+Author (TV3): Nguyen Thi Ngoc Truc - MSSV: 3123411313 | experiments and evaluation | 2026-11-25
 Vai tro: TV3 - Thuc nghiem va danh gia
 File   : evaluate.py - danh gia best.pt tren PublicTest (valid) va PrivateTest (test)
 

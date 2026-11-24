@@ -1,4 +1,5 @@
 """
+Author (TV3): Nguyen Thi Ngoc Truc - MSSV: 3123411313 | experiments and evaluation | 2026-11-25
 Vai tro: TV3 - Thuc nghiem va danh gia
 File   : aggregate.py - quet results/runs/*, xuat summary.csv, bieu do so sanh, nhat ky xlsx
 
@@ -43,16 +44,36 @@ def load_run(run_dir):
     hist_p = os.path.join(run_dir, "history.csv")
     if cfg_d is None or not os.path.exists(hist_p):
         return None
-    cfg = cfg_from_dict(cfg_d)
+    run_name = os.path.basename(os.path.normpath(run_dir))
+    # TV4's pretrained runner writes a smaller config than src/config.py.
+    # Infer its experiment ID from the stable run-folder name instead of
+    # silently treating those runs as the default E1-02 baseline.
+    inferred = {}
+    if run_name.startswith("E4-resnet18_"):
+        inferred = {"exp_id": "E4-01", "exp_name": "resnet18", "runner": "TV4"}
+    elif run_name.startswith("E4-vgg16_"):
+        inferred = {"exp_id": "E4-02", "exp_name": "vgg16", "runner": "TV4"}
+    cfg = cfg_from_dict({**inferred, **cfg_d})
+    if cfg.exp_id == "E4-03" and not cfg.runner:
+        cfg.runner = "TV4"
     h = pd.read_csv(hist_p)
     i = int(h["val_loss"].idxmin())
-    tcol = next((c for c in ("elapsed_time", "time", "epoch_time", "time_s") if c in h.columns), None)
-    tm = _read_json(os.path.join(run_dir, "test_metrics.json")) or {}
+    tcol = next((c for c in ("elapsed_time", "time", "epoch_time", "time_s", "seconds") if c in h.columns), None)
+    tm = (_read_json(os.path.join(run_dir, "test_metrics.json"))
+          or _read_json(os.path.join(run_dir, "private_test_metrics.json")) or {})
     test_acc = tm.get("test_acc", tm.get("accuracy", np.nan))
+    n_params = cfg_d.get("num_parameters", cfg_d.get("n_params"))
+    if n_params is None:
+        # Parameter counts for the exact model heads used by TV4.
+        n_params = {"resnet18": 11180103, "vgg16": 134289223, "medium": 11327303}.get(cfg.arch, np.nan)
+    if cfg.exp_id in ("E4-01", "E4-02"):
+        change = f"{cfg.arch} ImageNet pretrained; resize 96x96; RGB; ImageNet normalization"
+    else:
+        change = diff_from_baseline(cfg)
     return {
         "exp_id": cfg.exp_id, "name": cfg.exp_name, "seed": cfg.seed, "runner": cfg.runner,
-        "change": diff_from_baseline(cfg),
-        "n_params": cfg_d.get("num_parameters", cfg_d.get("n_params", np.nan)),
+        "change": change,
+        "n_params": n_params,
         "epochs_run": len(h),
         "best_epoch": int(h["epoch"].iloc[i]),
         "train_acc": _pct(float(h["train_acc"].iloc[i])),
