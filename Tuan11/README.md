@@ -10,7 +10,7 @@ Bài tập lớn 02 môn **Học sâu** – Huấn luyện mạng CNN bằng PyT
 |---|---|---|---|---|
 | **TV1 (Nhóm trưởng)** | Bùi Đức Trường – 3123411319 | Dữ liệu & pipeline, giữ repo, ghép code | `dataset.py`, `augment.py`, `eda.py`, `README.md` | **E3**: augmentation, class weight, chuẩn hóa |
 | **TV2** | Nguyễn Thị Ánh Trâm – 3123411306 | Mô hình & vòng lặp huấn luyện | `models.py`, `train.py`, `utils.py` | **E1**: kiến trúc CNN, activation, dropout, BatchNorm |
-| **TV3** | *(Điền họ tên – MSSV)* | Thực nghiệm hàng loạt, đánh giá & nhật ký | `config.py`, `run_experiments.py`, `evaluate.py`, `aggregate.py` | **E2**: optimizer, lr, scheduler, batch size, weight decay |
+| **TV3** | Nguyễn Thị Ngọc Trúc – 3123411313 | Thực nghiệm hàng loạt, đánh giá & nhật ký | `config.py`, `run_experiments.py`, `evaluate.py`, `aggregate.py` | **E2**: optimizer, lr, scheduler, batch size, weight decay |
 | **TV4** | Lê Thị Thanh Tuyền – 3123411332 | Trực quan hóa filter, phân tích, ghép báo cáo/slide | `visualize_filters.py`, `gradcam.py`, `train_pretrained.py`, `evaluate_pretrained.py`, `evaluate_final_cnn.py`, `summarize_tv4.py` | **E4**: pretrained fine-tune, đa seed cho mô hình tốt nhất |
 
 ---
